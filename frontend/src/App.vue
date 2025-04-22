@@ -6,6 +6,8 @@
   <div>
     <h1>Nothing yet! In construction! 🏗️ </h1>
   </div>
+
+  <footer><a target="_blank" href="https://icons8.com/icon/35611/dota-2">Dota 2</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></footer>
   
 </template>
 
