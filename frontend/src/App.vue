@@ -1,10 +1,25 @@
 <script setup lang="ts">
+  import { onMounted,ref } from 'vue';
 
+  const message = ref('Loading...');
+
+  onMounted(async ()=>{
+    try{
+      const res = await fetch('http://localhost:3000');//trocar por variável
+      const text = await res.text();
+      message.value = text;
+    }
+    catch(error){
+      message.value = 'Error connecting to the backend';
+      console.error(error)
+    }
+  })
 </script>
 
 <template>
   <div>
     <h1>Nothing yet! In construction! 🏗️ </h1>
+    <h2>{{ message }}</h2>
   </div>
 
   <footer><a target="_blank" href="https://icons8.com/icon/35611/dota-2">Dota 2</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></footer>
@@ -12,16 +27,5 @@
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
 </style>

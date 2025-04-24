@@ -1,0 +1,12 @@
+[
+    {
+        "name":"Axe",
+        "strengths":["AOE","HARD CC","ANTI DEATHLESS"],
+        "weaknesses":["BURST","SILENCE"]
+    },
+    {
+        "name":"Phantom Lancer",
+        "strengths":["SWARM","ESCAPE","MANA BURN"],
+        "weaknesses":["AOE","HARD CC"]
+    }
+]
