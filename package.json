@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@nestjs/common": "^11.1.0",
+    "@nestjs/core": "^11.1.0",
+    "@nestjs/platform-express": "^11.1.0",
+    "nest": "^0.1.6",
+    "nestjs": "^0.0.1",
+    "nvm": "^0.0.4",
+    "ts-node": "^10.9.2",
+    "vue": "^3.5.13",
+    "vuejs": "^3.0.1",
+    "yarn": "^1.22.22"
+  }
+}
