@@ -1,6 +1,6 @@
 import { Controller, Get, NotFoundException, Param, Query } from '@nestjs/common';
 import { HeroesService } from './heroes.service';
-import { Hero } from 'shared/models/hero.model';
+import { Hero } from 'src/shared/models/hero.model';
 
 @Controller('heroes')
 export class HeroesController {

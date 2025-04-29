@@ -1,11 +1,19 @@
 
-FRONT
+FRONT(VueJS)
     Página única
         Emulação de pagina de draft
             área a direita pra mostrar recomendações e controles
                 controles: trocar de time alvo, trocar o seu time
-BACK
+BACK(NestJS)
     Dicionário de heróis
         Cada heroi tem um array de "atributos"(coisas como Alto Dano Mágico, Alto Dano Físico, Muito Móvel, Regenera, Passivo Forte)
             TODO definir atributos possiveis
         Cada atributo tem um valor de 1 a 5(ou 1 a 10?)
+
+
+APRENDIZADOS
+    React is a library that's used like a framework. It only gives you tools to make something, where a framework has a project structure that will help you get whatever it is you wanna make off the ground quickly, assuming what you want to make is compatible with the framework's ideals
+
+    Frameworks diferentes pra front e back(duh)
+
+

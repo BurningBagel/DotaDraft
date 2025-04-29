@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
 import * as path from 'path';
-import { Hero } from 'shared/models/hero.model';
+import { Hero } from 'src/shared/models/hero.model';
 
 @Injectable()
 export class HeroesService {

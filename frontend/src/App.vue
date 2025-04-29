@@ -5,9 +5,9 @@
 
   onMounted(async ()=>{
     try{
-      const res = await fetch('http://localhost:3000');//trocar por variável
+      const res = await fetch('http://localhost:3000');//trocar url por variável
       const text = await res.text();
-      message.value = text;
+      message.value = text; //troca o texto da msg quando for feita a conexão com o backend
     }
     catch(error){
       message.value = 'Error connecting to the backend';
