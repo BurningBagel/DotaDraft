@@ -13,6 +13,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -28,6 +34,10 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  align-items:stretch;
 }
 
 h1 {
@@ -59,9 +69,10 @@ button:focus-visible {
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: 1920px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 

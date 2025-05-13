@@ -6,19 +6,17 @@
     <div class="SELECT-RADIANT">SELECT RADIANT</div>
     <div class="STR">
       <HeroGroup :title="'Strength'" :heroes="strHeroes" :onSelect="addHero" />
-      STR
     </div>
     <div class="UNI"></div>
     <div class="INT"></div>
     <div class="AGI">
-        AGI
       <HeroGroup :title="'Agility'" :heroes="agiHeroes" :onSelect="addHero" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { testHeroes } from "../../data/testHeroes.ts";
+import { testHeroes } from "../data/testHeroes.ts";
 import { computed } from "vue";
 import HeroGroup from "./HeroGroup.vue";
 import { Attribute } from "../shared/enums/attribute.enum";
@@ -46,10 +44,13 @@ const agiHeroes = computed(() =>
 <style lang="css" scoped>
 .container {
   display: grid;
+  border: 1px solid purple;
+  width: 100vw;
+  height: 100vh;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 0.25fr 1fr 1fr;
   grid-auto-rows: 1fr;
-  gap: 0px 0px;
+  gap: 0;
   grid-auto-flow: row;
   grid-template-areas:
     "RADIANT RADIANT RADIANT RADIANT RADIANT SELECT-RADIANT SELECT-RADIANT SELECT-DIRE SELECT-DIRE DIRE DIRE DIRE DIRE DIRE"
@@ -75,17 +76,21 @@ const agiHeroes = computed(() =>
 
 .STR {
   grid-area: STR;
+  border: 1px solid red;
 }
 
 .UNI {
   grid-area: UNI;
+  border: 1px solid orange;
 }
 
 .INT {
   grid-area: INT;
+  border: 1px solid blue;
 }
 
 .AGI {
   grid-area: AGI;
+  border: 1px solid green;
 }
 </style>
