@@ -6,8 +6,8 @@
         v-for="hero in heroes"
         :key="hero.name"
         class="hero-tile"
-        @click.left="() => onSelect('radiant', hero)"
-        @click.right.prevent="() => onSelect('dire', hero)"
+        @click.left="() => OnSelect('radiant', hero)"
+        @click.right.prevent="() => OnSelect('dire', hero)"
       >
         <img :src="`/images/heroes/${hero.name.toLowerCase()}.webp`" :alt="`${hero.name}`" />
       </div>
@@ -19,7 +19,7 @@
 defineProps({
   title: String,
   heroes: Array,
-  onSelect: Function,
+  OnSelect: Function,
 });
 </script>
 

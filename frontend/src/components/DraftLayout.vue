@@ -6,13 +6,17 @@
     <div class="DIRE">
       <TeamHeroes :team="dire" :chosenTeam="'dire'"/>
     </div>
-    <div class="SELECT-DIRE">SELECT DIRE</div>
-    <div class="SELECT-RADIANT">SELECT RADIANT</div>
+    <div class="SELECT-DIRE">
+      <TeamButton :teamName="'dire'" :TeamSelect="TeamSelect"/>
+    </div>
+    <div class="SELECT-RADIANT">
+      <TeamButton :teamName="'radiant'" :TeamSelect="TeamSelect"/>
+    </div>
     <div class="STR">
-      <HeroGroup :title="'Strength'" :heroes="strHeroes" :onSelect="addHero" />
+      <HeroGroup :title="'Strength'" :heroes="strHeroes" :OnSelect="AddHero" />
     </div>
     <div class="AGI">
-      <HeroGroup :title="'Agility'" :heroes="agiHeroes" :onSelect="addHero" />
+      <HeroGroup :title="'Agility'" :heroes="agiHeroes" :OnSelect="AddHero" />
     </div>
     
     <div class="INFO">
@@ -28,10 +32,10 @@
     </div>
     
     <div class="INT">
-      <HeroGroup :title="'Intelligence'" :heroes="intHeroes" :onSelect="addHero" />
+      <HeroGroup :title="'Intelligence'" :heroes="intHeroes" :OnSelect="AddHero" />
     </div>
     <div class="UNI">
-      <HeroGroup :title="'Universal'" :heroes="uniHeroes" :onSelect="addHero" />
+      <HeroGroup :title="'Universal'" :heroes="uniHeroes" :OnSelect="AddHero" />
     </div>
   </div>
 </template>
@@ -44,11 +48,19 @@ import { Attribute } from "../shared/enums/attribute.enum";
 import type { Hero } from "../shared/models/hero.model.ts";
 import { ref } from "vue";
 import TeamHeroes from "./TeamHeroes.vue";
+import TeamButton from "./TeamButton.vue";
 
 const radiant = ref<Hero[]>([]);
 const dire = ref<Hero[]>([]);
 
-const addHero = (team: String, hero: Hero) => {
+var selectedTeam: String; 
+
+const TeamSelect = (team: String) => {
+  selectedTeam = team;
+  // TODO hide the team buttons
+}
+
+const AddHero = (team: String, hero: Hero) => {
   const chosenTeam = team === "radiant" ? radiant.value : dire.value;
   const otherTeam = team === "radiant" ? dire.value : radiant.value;
   

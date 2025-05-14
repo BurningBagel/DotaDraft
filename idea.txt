@@ -20,9 +20,9 @@ APRENDIZADOS
 
 
 
-TODO: 
+TODO:
     Seleção de time
-    Adicionar mais heróis para experimentos 
+    Adicionar mais heróis para experimentos
     Botâo de resetar Página
     Funcionalidade de sugestões
     Polishing
