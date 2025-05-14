@@ -16,4 +16,13 @@ APRENDIZADOS
 
     Frameworks diferentes pra front e back(duh)
 
+    Scaffolding: gerar a estrutura básica do front ou backend usando uma ferramenta. Neste projeto usei Nest CLI pro backend e Vite pro front 
 
+
+
+TODO: 
+    Seleção de time
+    Adicionar mais heróis para experimentos 
+    Botâo de resetar Página
+    Funcionalidade de sugestões
+    Polishing
