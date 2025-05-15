@@ -1,14 +1,169 @@
 [
     {
+        "name":"Abbadon",
+        "attribute":"Strength",
+        "strengths":["STRONG DISPEL","REGENERATION","HEALING"],
+        "weaknesses":["ANTI HEAL","ESCAPE","SWARM"]
+    },
+    {
+        "name":"Alchemist",
+        "attribute":"Strength",
+        "strengths":["REGENERATION","AOE","ANTI ARMOR"],
+        "weaknesses":["ANTI HEAL","HARD CC","SILENCE"]
+    },
+    {
+        "name":"Bristleback",
+        "attribute":"Strength",
+        "strengths":["AOE","ANTI ARMOR","PASSIVE"],
+        "weaknesses":["SILENCE","BREAK","HARD CC"]
+    },
+    {
+        "name":"Centaur Warrunner",
+        "attribute":"Strength",
+        "strengths":["PASSIVE","ESCAPE","HARD CC"],
+        "weaknesses":["SILENCE","MANA BURN","PERCENT HEALTH DAMAGE"]
+    },
+    {
+        "name":"Chaos Knight",
+        "attribute":"Strength",
+        "strengths":["SWARM","HARD CC","CATCH"],
+        "weaknesses":["AOE","ANTI HEAL","HARD CC","SLOW"]
+    },
+    {
+        "name":"Clockwerk",
+        "attribute":"Strength",
+        "strengths":["CATCH","MANA BURN"],
+        "weaknesses":["SILENCE","SLOW"]
+    },
+    {
+        "name":"Dawnbreaker",
+        "attribute":"Strength",
+        "strengths":["GLOBAL","AOE","HEALING"],
+        "weaknesses":["ANTI HEAL","SLOW"]
+    },
+    {
+        "name":"Doom",
+        "attribute":"Strength",
+        "strengths":[]
+    },
+    {
+        "name":"Dragon Knight",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Earth Spirit",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Earthshaker",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Elder Titan",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Huskar",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Kunkka",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Legion Commander",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Lifestealer",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Lycan",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Mars",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Night Stalker",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Ogre Magi",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Omniknight",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Phoenix",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Primal Beast",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Pudge",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Slardar",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Spirit Breaker",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Sven",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Tidehunter",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Timbersaw",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Tiny",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Treant Protector",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Tusk",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Underlord",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Undying",
+        "attribute":"Strength"
+    },
+    {
+        "name":"Wraith King",
+        "attribute":"Strength"
+    },
+    {
         "name":"Axe",
         "attribute":"Strength",
-        "strengths":["AOE","HARD CC","ANTI DEATHLESS"],
+        "strengths":["AOE","HARD CC","ANTI DEATHLESS","CATCH"],
         "weaknesses":["BURST","SILENCE"]
     },
     {
         "name":"Phantom Lancer",
         "attribute":"Agility",
         "strengths":["SWARM","ESCAPE","MANA BURN"],
-        "weaknesses":["AOE","HARD CC"]
+        "weaknesses":["AOE","HARD CC","CATCH"]
     }
 ]
