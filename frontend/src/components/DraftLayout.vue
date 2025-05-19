@@ -64,7 +64,6 @@ const selectedTeam = ref<Team | null>(null);
 
 const TeamSelect = (team: Team) => {
   selectedTeam.value = team;
-  // TODO hide the team buttons
 }
 
 const ResetDraft = () => {

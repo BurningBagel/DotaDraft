@@ -44,7 +44,8 @@
     {
         "name":"Doom",
         "attribute":"Strength",
-        "strengths":[]
+        "strengths":["ANTI HEAL","SILENCE","AOE"],
+        "weaknesses":[""]
     },
     {
         "name":"Dragon Knight",
