@@ -44,20 +44,26 @@
     {
         "name":"Doom",
         "attribute":"Strength",
-        "strengths":["ANTI HEAL","SILENCE","AOE"],
-        "weaknesses":[""]
+        "strengths":["ANTI HEAL","SILENCE","BKB PIERCE"],
+        "weaknesses":["SLOW","BKB PIERCE","SILENCE"]
     },
     {
         "name":"Dragon Knight",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["HIGH ARMOR","BUILDING BUSTER","HIGH HEALTH"],
+        "weaknesses":["HIGH MAG DMG","ESCAPE","SLOW"]
     },
     {
         "name":"Earth Spirit",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["CATCH","SILENCE","SLOW"],
+        "weaknesses":["HIGH MAG DMG","HIGH PHY DMG","STRONG DISPEL"]
     },
     {
         "name":"Earthshaker",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["AOE","HARD CC","TEAMFIGHT"],
+        "weaknesses":["SILENCE","GLOBAL","HIGH HEALTH"]
     },
     {
         "name":"Elder Titan",
