@@ -5,7 +5,7 @@ export enum Trait{
     ESCAPE="ESCAPE",
     SWARM="SWARM",
     AOE="AOE",
-    ANTI_ARMOR="ANTI ARMOR",
+    MINUS_ARMOR="MINUS ARMOR",
     SILENCE="SILENCE",
     HARD_CC="HARD CC",
     BREAK="BREAK",
@@ -22,5 +22,10 @@ export enum Trait{
     TRUE_SIGHT="TRUE SIGHT",
     HIGH_ARMOR="HIGH ARMOR",
     BUILDING_BUSTER="BUILDING BUSTER",
-    TEAMFIGHT="TEAMFIGHT",//a.k.a big aoe disables
+    TEAMFIGHT="TEAMFIGHT",//a.k.a big aoe disables,
+    DISARM="DISARM",
+    EVASION="EVASION",
+    ACCURACY="ACCURACY",
+    BURST="BURST",
+    SAVES="SAVES"
 }

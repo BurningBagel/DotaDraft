@@ -8,13 +8,13 @@
     {
         "name":"Alchemist",
         "attribute":"Strength",
-        "strengths":["REGENERATION","AOE","ANTI ARMOR"],
+        "strengths":["REGENERATION","AOE","MINUS ARMOR"],
         "weaknesses":["ANTI HEAL","HARD CC","SILENCE"]
     },
     {
         "name":"Bristleback",
         "attribute":"Strength",
-        "strengths":["AOE","ANTI ARMOR","PASSIVE"],
+        "strengths":["AOE","MINUS ARMOR","PASSIVE"],
         "weaknesses":["SILENCE","BREAK","HARD CC"]
     },
     {
@@ -57,7 +57,7 @@
         "name":"Earth Spirit",
         "attribute":"Strength",
         "strengths":["CATCH","SILENCE","SLOW"],
-        "weaknesses":["HIGH MAG DMG","HIGH PHY DMG","STRONG DISPEL"]
+        "weaknesses":["BURST","SILENCE","STRONG DISPEL"]
     },
     {
         "name":"Earthshaker",
@@ -67,31 +67,45 @@
     },
     {
         "name":"Elder Titan",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["MINUS ARMOR","PERCENT HEALTH DAMAGE","TEAMFIGHT"],
+        "weaknesses":["SLOW","DISARM","ESCAPE"]
     },
     {
         "name":"Huskar",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["REGENERATION","PASSIVE","DISARM","HIGH HEALTH"],
+        "weaknesses":["ANTI HEAL","ANTI DEATHLESS","DISARM"]
     },
     {
         "name":"Kunkka",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["TEAMFIGHT","AOE","CATCH"],
+        "weaknesses":["SILENCE","MANA BURN","HIGH HEALTH"]
     },
     {
         "name":"Legion Commander",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["HARD CC","BKB PIERCE","STRONG DISPEL"],
+        "weaknesses":["DISARM","ANTI HEAL","SAVES"]
     },
     {
         "name":"Lifestealer",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["PERCENT HEALTH DAMAGE","REGENERATION","ESCAPE"],
+        "weaknesses":["BKB PIERCE","ANTI HEAL","SAVES"]
     },
     {
         "name":"Lycan",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["BUILDING BUSTER","CATCH","ESCAPE"],
+        "weaknesses":["CATCH","HARD CC","DISARM"]
     },
     {
         "name":"Mars",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["TEAMFIGHT","CATCH","HIGH ARMOR"],
+        "weaknesses":["MANA BURN",""]
     },
     {
         "name":"Night Stalker",
