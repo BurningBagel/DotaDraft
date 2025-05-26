@@ -2,189 +2,223 @@
     {
         "name":"Abbadon",
         "attribute":"Strength",
-        "strengths":["STRONG DISPEL","REGENERATION","HEALING"],
-        "weaknesses":["ANTI HEAL","ESCAPE","SWARM"]
+        "strengths":["REGENERATION","SLOW"],
+        "weaknesses":["ANTI HEAL","BLINKING"]
     },
     {
         "name":"Alchemist",
         "attribute":"Strength",
-        "strengths":["REGENERATION","AOE","MINUS ARMOR"],
-        "weaknesses":["ANTI HEAL","HARD CC","SILENCE"]
+        "strengths":["REGENERATION"],
+        "weaknesses":["ANTI HEAL"]
+    },
+    {
+        "name":"Axe",
+        "attribute":"Strength",
+        "strengths":["AOE","CATCH"],
+        "weaknesses":["SILENCE"]
     },
     {
         "name":"Bristleback",
         "attribute":"Strength",
-        "strengths":["AOE","MINUS ARMOR","PASSIVE"],
-        "weaknesses":["SILENCE","BREAK","HARD CC"]
+        "strengths":["AOE","PASSIVE","FAST"],
+        "weaknesses":["BREAK","CATCH","SLOW"]
     },
     {
         "name":"Centaur Warrunner",
         "attribute":"Strength",
-        "strengths":["PASSIVE","ESCAPE","HARD CC"],
-        "weaknesses":["SILENCE","MANA BURN","PERCENT HEALTH DAMAGE"]
+        "strengths":["CATCH","FAST"],
+        "weaknesses":[]
     },
     {
         "name":"Chaos Knight",
         "attribute":"Strength",
-        "strengths":["SWARM","HARD CC","CATCH"],
-        "weaknesses":["AOE","ANTI HEAL","HARD CC","SLOW"]
+        "strengths":["SWARM","CATCH","REGENERATION"],
+        "weaknesses":["AOE","ANTI HEAL"]
     },
     {
         "name":"Clockwerk",
         "attribute":"Strength",
-        "strengths":["CATCH","MANA BURN"],
-        "weaknesses":["SILENCE","SLOW"]
+        "strengths":["CATCH"],
+        "weaknesses":[]
     },
     {
         "name":"Dawnbreaker",
         "attribute":"Strength",
-        "strengths":["GLOBAL","AOE","HEALING"],
+        "strengths":["AOE","CATCH"],
         "weaknesses":["ANTI HEAL","SLOW"]
     },
     {
         "name":"Doom",
         "attribute":"Strength",
-        "strengths":["ANTI HEAL","SILENCE","BKB PIERCE"],
-        "weaknesses":["SLOW","BKB PIERCE","SILENCE"]
+        "strengths":["ANTI HEAL","SILENCE"],
+        "weaknesses":["SLOW","SILENCE"]
     },
     {
         "name":"Dragon Knight",
         "attribute":"Strength",
-        "strengths":["HIGH ARMOR","BUILDING BUSTER","HIGH HEALTH"],
-        "weaknesses":["HIGH MAG DMG","ESCAPE","SLOW"]
+        "strengths":[],
+        "weaknesses":["FAST","SLOW"]
     },
     {
         "name":"Earth Spirit",
         "attribute":"Strength",
         "strengths":["CATCH","SILENCE","SLOW"],
-        "weaknesses":["BURST","SILENCE","STRONG DISPEL"]
+        "weaknesses":["CATCH","SILENCE"]
     },
     {
         "name":"Earthshaker",
         "attribute":"Strength",
-        "strengths":["AOE","HARD CC","TEAMFIGHT"],
-        "weaknesses":["SILENCE","GLOBAL","HIGH HEALTH"]
+        "strengths":["AOE","CATCH"],
+        "weaknesses":["SILENCE"]
     },
     {
         "name":"Elder Titan",
         "attribute":"Strength",
-        "strengths":["MINUS ARMOR","PERCENT HEALTH DAMAGE","TEAMFIGHT"],
-        "weaknesses":["SLOW","DISARM","ESCAPE"]
+        "strengths":["AOE"],
+        "weaknesses":["ESCAPE"]
     },
     {
         "name":"Huskar",
         "attribute":"Strength",
-        "strengths":["REGENERATION","PASSIVE","DISARM","HIGH HEALTH"],
-        "weaknesses":["ANTI HEAL","ANTI DEATHLESS","DISARM"]
+        "strengths":["REGENERATION","PASSIVE"],
+        "weaknesses":["ANTI HEAL","DISARM"]
     },
     {
         "name":"Kunkka",
         "attribute":"Strength",
-        "strengths":["TEAMFIGHT","AOE","CATCH"],
-        "weaknesses":["SILENCE","MANA BURN","HIGH HEALTH"]
+        "strengths":["AOE","CATCH"],
+        "weaknesses":[]
     },
     {
         "name":"Legion Commander",
         "attribute":"Strength",
-        "strengths":["HARD CC","BKB PIERCE","STRONG DISPEL"],
-        "weaknesses":["DISARM","ANTI HEAL","SAVES"]
+        "strengths":["CATCH"],
+        "weaknesses":["ANTI HEAL","SWARM"]
     },
     {
         "name":"Lifestealer",
         "attribute":"Strength",
-        "strengths":["PERCENT HEALTH DAMAGE","REGENERATION","ESCAPE"],
-        "weaknesses":["BKB PIERCE","ANTI HEAL","SAVES"]
+        "strengths":["REGENERATION","ESCAPE"],
+        "weaknesses":["ANTI HEAL","FAST","SLOW","BLINKING","SWARM"]
     },
     {
         "name":"Lycan",
         "attribute":"Strength",
-        "strengths":["BUILDING BUSTER","CATCH","ESCAPE"],
-        "weaknesses":["CATCH","HARD CC","DISARM"]
+        "strengths":["FAST"],
+        "weaknesses":["CATCH","SWARM"]
     },
     {
         "name":"Mars",
         "attribute":"Strength",
-        "strengths":["TEAMFIGHT","CATCH","HIGH ARMOR"],
-        "weaknesses":["MANA BURN",""]
+        "strengths":["CATCH","PASSIVE"],
+        "weaknesses":["BREAK"]
     },
     {
         "name":"Night Stalker",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["FAST","SLOW","SILENCE"],
+        "weaknesses":["BREAK","BLINKING","SWARM"]
     },
     {
         "name":"Ogre Magi",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["CATCH","SLOW"],
+        "weaknesses":[]
     },
     {
         "name":"Omniknight",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["SLOW"],
+        "weaknesses":["ANTI HEAL","BLINKING"]
     },
     {
         "name":"Phoenix",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["REGENERATION","FAST"],
+        "weaknesses":["ANTI HEAL"]
     },
     {
         "name":"Primal Beast",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["CATCH","FAST","AOE"],
+        "weaknesses":["BLINKING"]
     },
     {
         "name":"Pudge",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["CATCH","AOE"],
+        "weaknesses":["ANTI HEAL"]
     },
     {
         "name":"Slardar",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["CATCH","TRUE SIGHT","FAST"],
+        "weaknesses":["SWARM"]
     },
     {
         "name":"Spirit Breaker",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["CATCH","FAST"],
+        "weaknesses":["CATCH","SLOW"]
     },
     {
         "name":"Sven",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["CATCH","AOE"],
+        "weaknesses":["SLOW"]
     },
     {
         "name":"Tidehunter",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["AOE","SLOW","CATCH"],
+        "weaknesses":[]
     },
     {
         "name":"Timbersaw",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["FAST","PASSIVE","AOE"],
+        "weaknesses":["BREAK"]
     },
     {
         "name":"Tiny",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["CATCH"],
+        "weaknesses":[]
     },
     {
         "name":"Treant Protector",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["SLOW","ROOT","INVISIBILITY"],
+        "weaknesses":["TRUE SIGHT"]
     },
     {
         "name":"Tusk",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["CATCH"],
+        "weaknesses":["SWARM"]
     },
     {
         "name":"Underlord",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["ROOT","AOE"],
+        "weaknesses":["SLOW"]
     },
     {
         "name":"Undying",
-        "attribute":"Strength"
+        "attribute":"Strength",
+        "strengths":["AOE","SWARM","SLOW"],
+        "weaknesses":["ANTI HEAL","BLINKING"]
     },
     {
         "name":"Wraith King",
-        "attribute":"Strength"
-    },
-    {
-        "name":"Axe",
         "attribute":"Strength",
-        "strengths":["AOE","HARD CC","ANTI DEATHLESS","CATCH"],
-        "weaknesses":["BURST","SILENCE"]
+        "strengths":["CATCH","PASSIVE"],
+        "weaknesses":[]
     },
     {
         "name":"Phantom Lancer",
         "attribute":"Agility",
-        "strengths":["SWARM","ESCAPE","MANA BURN"],
-        "weaknesses":["AOE","HARD CC","CATCH"]
+        "strengths":["SWARM","FAST","BLINKING"],
+        "weaknesses":["AOE","CATCH"]
     }
 ]
