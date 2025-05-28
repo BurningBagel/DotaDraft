@@ -3,7 +3,7 @@
         "name":"Abbadon",
         "attribute":"Strength",
         "strengths":["REGENERATION","SLOW"],
-        "weaknesses":["ANTI HEAL","BLINKING"]
+        "weaknesses":["ANTI HEAL"]
     },
     {
         "name":"Alchemist",
@@ -15,7 +15,7 @@
         "name":"Axe",
         "attribute":"Strength",
         "strengths":["AOE","CATCH"],
-        "weaknesses":["SILENCE"]
+        "weaknesses":[]
     },
     {
         "name":"Bristleback",
@@ -27,7 +27,7 @@
         "name":"Centaur Warrunner",
         "attribute":"Strength",
         "strengths":["CATCH","FAST"],
-        "weaknesses":[]
+        "weaknesses":["SLOW","CATCH"]
     },
     {
         "name":"Chaos Knight",
@@ -44,44 +44,44 @@
     {
         "name":"Dawnbreaker",
         "attribute":"Strength",
-        "strengths":["AOE","CATCH"],
-        "weaknesses":["ANTI HEAL","SLOW"]
+        "strengths":["AOE","CATCH","REGENERATION"],
+        "weaknesses":["ANTI HEAL"]
     },
     {
         "name":"Doom",
         "attribute":"Strength",
-        "strengths":["ANTI HEAL","SILENCE"],
-        "weaknesses":["SLOW","SILENCE"]
+        "strengths":["ANTI HEAL"],
+        "weaknesses":[]
     },
     {
         "name":"Dragon Knight",
         "attribute":"Strength",
-        "strengths":[],
-        "weaknesses":["FAST","SLOW"]
+        "strengths":["PASSIVE"],
+        "weaknesses":["BREAK"]
     },
     {
         "name":"Earth Spirit",
         "attribute":"Strength",
-        "strengths":["CATCH","SILENCE","SLOW"],
-        "weaknesses":["CATCH","SILENCE"]
+        "strengths":["CATCH","SLOW"],
+        "weaknesses":["CATCH"]
     },
     {
         "name":"Earthshaker",
         "attribute":"Strength",
         "strengths":["AOE","CATCH"],
-        "weaknesses":["SILENCE"]
+        "weaknesses":[]
     },
     {
         "name":"Elder Titan",
         "attribute":"Strength",
         "strengths":["AOE"],
-        "weaknesses":["ESCAPE"]
+        "weaknesses":[]
     },
     {
         "name":"Huskar",
         "attribute":"Strength",
         "strengths":["REGENERATION","PASSIVE"],
-        "weaknesses":["ANTI HEAL","DISARM"]
+        "weaknesses":["ANTI HEAL","BREAK"]
     },
     {
         "name":"Kunkka",
@@ -93,13 +93,13 @@
         "name":"Legion Commander",
         "attribute":"Strength",
         "strengths":["CATCH"],
-        "weaknesses":["ANTI HEAL","SWARM"]
+        "weaknesses":["ANTI HEAL"]
     },
     {
         "name":"Lifestealer",
         "attribute":"Strength",
-        "strengths":["REGENERATION","ESCAPE"],
-        "weaknesses":["ANTI HEAL","FAST","SLOW","BLINKING","SWARM"]
+        "strengths":["REGENERATION"],
+        "weaknesses":["ANTI HEAL"]
     },
     {
         "name":"Lycan",
@@ -116,8 +116,8 @@
     {
         "name":"Night Stalker",
         "attribute":"Strength",
-        "strengths":["FAST","SLOW","SILENCE"],
-        "weaknesses":["BREAK","BLINKING","SWARM"]
+        "strengths":["FAST","SLOW","PASSIVE"],
+        "weaknesses":["BREAK","SLOW"]
     },
     {
         "name":"Ogre Magi",
@@ -129,19 +129,19 @@
         "name":"Omniknight",
         "attribute":"Strength",
         "strengths":["SLOW"],
-        "weaknesses":["ANTI HEAL","BLINKING"]
+        "weaknesses":["ANTI HEAL"]
     },
     {
         "name":"Phoenix",
         "attribute":"Strength",
-        "strengths":["REGENERATION","FAST"],
-        "weaknesses":["ANTI HEAL"]
+        "strengths":["REGENERATION","BLINKING"],
+        "weaknesses":["ANTI HEAL","ROOT"]
     },
     {
         "name":"Primal Beast",
         "attribute":"Strength",
         "strengths":["CATCH","FAST","AOE"],
-        "weaknesses":["BLINKING"]
+        "weaknesses":["SLOW"]
     },
     {
         "name":"Pudge",
@@ -153,7 +153,7 @@
         "name":"Slardar",
         "attribute":"Strength",
         "strengths":["CATCH","TRUE SIGHT","FAST"],
-        "weaknesses":["SWARM"]
+        "weaknesses":["SLOW"]
     },
     {
         "name":"Spirit Breaker",
@@ -165,19 +165,19 @@
         "name":"Sven",
         "attribute":"Strength",
         "strengths":["CATCH","AOE"],
-        "weaknesses":["SLOW"]
+        "weaknesses":[]
     },
     {
         "name":"Tidehunter",
         "attribute":"Strength",
-        "strengths":["AOE","SLOW","CATCH"],
+        "strengths":["AOE","SLOW","CATCH","ROOT"],
         "weaknesses":[]
     },
     {
         "name":"Timbersaw",
         "attribute":"Strength",
-        "strengths":["FAST","PASSIVE","AOE"],
-        "weaknesses":["BREAK"]
+        "strengths":["BLINKING","PASSIVE","AOE"],
+        "weaknesses":["BREAK","CATCH"]
     },
     {
         "name":"Tiny",
@@ -219,6 +219,215 @@
         "name":"Phantom Lancer",
         "attribute":"Agility",
         "strengths":["SWARM","FAST","BLINKING"],
-        "weaknesses":["AOE","CATCH"]
+        "weaknesses":["AOE","CATCH","ROOT","SL"]
+    },
+    {
+        "name":"Anti-Mage",
+        "attribute":"Agility",
+        "strengths":["BLINKING","PASSIVE"],
+        "weaknesses":["CATCH","ROOT"]
+    },
+    {
+        "name":"Bloodseeker",
+        "attribute":"Agility",
+        "strengths":["FAST","REGENERATION","SLOW"],
+        "weaknesses":["SLOW","ANTI HEAL","TRUE SIGHT","CATCH"]
+    },
+    {
+        "name":"Bounty Hunter",
+        "attribute":"Agility",
+        "strengths":["INVISIBILITY","TRUE SIGHT","FAST"],
+        "weaknesses":["TRUE SIGHT","SLOW","CATCH"]
+    },
+    {
+        "name":"Broodmother",
+        "attribute":"Agility",
+        "strengths":["SLOW","SWARM","FAST"],
+        "weaknesses":["AOE","SLOW","CATCH"]
+    },
+    {
+        "name":"Clinkz",
+        "attribute":"Agility",
+        "strengths":["INVISIBILITY","FAST"],
+        "weaknesses":["TRUE SIGHT","SLOW","CATCH"]
+    },
+    {
+        "name":"Drow Ranger",
+        "attribute":"Agility",
+        "strengths":["PASSIVE","SLOW","ANTI HEAL"],
+        "weaknesses":["BREAK","BLINKING"]
+    },
+    {
+        "name":"Ember Spirit",
+        "attribute":"Agility",
+        "strengths":["BLINKING"],
+        "weaknesses":["ROOT","CATCH"]
+    },
+    {
+        "name":"Faceless Void",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Gyrocopter",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Hoodwink",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Juggernaut",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Kez",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Lone Druid",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Luna",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Medusa",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Meepo",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Mirana",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Monkey King",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Morphling",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Muerta",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Naga Siren",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Nyx Assassin",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Phantom Assassin",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Riki",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Shadow Fiend",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Slark",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Sniper",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Spectre",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Templar Assassin",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Terrorblade",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Troll Warlord",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Ursa",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Viper",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
+    },
+    {
+        "name":"Weaver",
+        "attribute":"Agility",
+        "strengths":[],
+        "weaknesses":[]
     }
+    
+    
+    
+
+
 ]
