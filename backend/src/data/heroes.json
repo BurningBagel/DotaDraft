@@ -21,13 +21,13 @@
         "name":"Bristleback",
         "attribute":"Strength",
         "strengths":["AOE","PASSIVE","FAST"],
-        "weaknesses":["BREAK","CATCH","SLOW"]
+        "weaknesses":["BREAK","CATCH","SLOW","ROOT"]
     },
     {
         "name":"Centaur Warrunner",
         "attribute":"Strength",
         "strengths":["CATCH","FAST"],
-        "weaknesses":["SLOW","CATCH"]
+        "weaknesses":["SLOW","CATCH","ROOT"]
     },
     {
         "name":"Chaos Knight",
@@ -105,7 +105,7 @@
         "name":"Lycan",
         "attribute":"Strength",
         "strengths":["FAST"],
-        "weaknesses":["CATCH","SWARM"]
+        "weaknesses":["CATCH","SWARM","ROOT"]
     },
     {
         "name":"Mars",
@@ -117,7 +117,7 @@
         "name":"Night Stalker",
         "attribute":"Strength",
         "strengths":["FAST","SLOW","PASSIVE"],
-        "weaknesses":["BREAK","SLOW"]
+        "weaknesses":["BREAK","SLOW","ROOT"]
     },
     {
         "name":"Ogre Magi",
@@ -141,7 +141,7 @@
         "name":"Primal Beast",
         "attribute":"Strength",
         "strengths":["CATCH","FAST","AOE"],
-        "weaknesses":["SLOW"]
+        "weaknesses":["SLOW","ROOT"]
     },
     {
         "name":"Pudge",
@@ -153,13 +153,13 @@
         "name":"Slardar",
         "attribute":"Strength",
         "strengths":["CATCH","TRUE SIGHT","FAST"],
-        "weaknesses":["SLOW"]
+        "weaknesses":["SLOW","ROOT"]
     },
     {
         "name":"Spirit Breaker",
         "attribute":"Strength",
         "strengths":["CATCH","FAST"],
-        "weaknesses":["CATCH","SLOW"]
+        "weaknesses":["CATCH","SLOW","ROOT"]
     },
     {
         "name":"Sven",
@@ -195,31 +195,25 @@
         "name":"Tusk",
         "attribute":"Strength",
         "strengths":["CATCH"],
-        "weaknesses":["SWARM"]
+        "weaknesses":[]
     },
     {
         "name":"Underlord",
         "attribute":"Strength",
         "strengths":["ROOT","AOE"],
-        "weaknesses":["SLOW"]
+        "weaknesses":[]
     },
     {
         "name":"Undying",
         "attribute":"Strength",
         "strengths":["AOE","SWARM","SLOW"],
-        "weaknesses":["ANTI HEAL","BLINKING"]
+        "weaknesses":["ANTI HEAL"]
     },
     {
         "name":"Wraith King",
         "attribute":"Strength",
-        "strengths":["CATCH","PASSIVE"],
+        "strengths":["CATCH"],
         "weaknesses":[]
-    },
-    {
-        "name":"Phantom Lancer",
-        "attribute":"Agility",
-        "strengths":["SWARM","FAST","BLINKING"],
-        "weaknesses":["AOE","CATCH","ROOT","SL"]
     },
     {
         "name":"Anti-Mage",
@@ -231,25 +225,25 @@
         "name":"Bloodseeker",
         "attribute":"Agility",
         "strengths":["FAST","REGENERATION","SLOW"],
-        "weaknesses":["SLOW","ANTI HEAL","TRUE SIGHT","CATCH"]
+        "weaknesses":["SLOW","ANTI HEAL","TRUE SIGHT","CATCH","ROOT"]
     },
     {
         "name":"Bounty Hunter",
         "attribute":"Agility",
         "strengths":["INVISIBILITY","TRUE SIGHT","FAST"],
-        "weaknesses":["TRUE SIGHT","SLOW","CATCH"]
+        "weaknesses":["TRUE SIGHT","SLOW","CATCH","ROOT"]
     },
     {
         "name":"Broodmother",
         "attribute":"Agility",
         "strengths":["SLOW","SWARM","FAST"],
-        "weaknesses":["AOE","SLOW","CATCH"]
+        "weaknesses":["AOE","SLOW","CATCH","ROOT"]
     },
     {
         "name":"Clinkz",
         "attribute":"Agility",
         "strengths":["INVISIBILITY","FAST"],
-        "weaknesses":["TRUE SIGHT","SLOW","CATCH"]
+        "weaknesses":["TRUE SIGHT","SLOW","CATCH","ROOT"]
     },
     {
         "name":"Drow Ranger",
@@ -266,74 +260,74 @@
     {
         "name":"Faceless Void",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["CATCH","BLINKING"],
+        "weaknesses":["ROOT","CATCH"]
     },
     {
         "name":"Gyrocopter",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["AOE","FAST"],
+        "weaknesses":["SLOW","CATCH","ROOT"]
     },
     {
         "name":"Hoodwink",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["FAST","BREAK"],
+        "weaknesses":["CATCH","SLOW","ROOT"]
     },
     {
         "name":"Juggernaut",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["REGENERATION"],
+        "weaknesses":["ANTI HEAL"]
     },
     {
         "name":"Kez",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["INVISIBILITY","BLINKING"],
+        "weaknesses":["TRUE SIGHT","ROOT","CATCH"]
     },
     {
         "name":"Lone Druid",
         "attribute":"Agility",
-        "strengths":[],
+        "strengths":["ROOT"],
         "weaknesses":[]
     },
     {
         "name":"Luna",
         "attribute":"Agility",
-        "strengths":[],
+        "strengths":["AOE"],
         "weaknesses":[]
     },
     {
         "name":"Medusa",
         "attribute":"Agility",
-        "strengths":[],
+        "strengths":["AOE","ROOT"],
         "weaknesses":[]
     },
     {
         "name":"Meepo",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["SWARM","ROOT","REGENERATION"],
+        "weaknesses":["AOE","ANTI HEAL"]
     },
     {
         "name":"Mirana",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["BLINKING","CATCH"],
+        "weaknesses":["ROOT","CATCH"]
     },
     {
         "name":"Monkey King",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["BLINKING","REGENERATION","CATCH"],
+        "weaknesses":["ANTI HEAL","ROOT","CATCH"]
     },
     {
         "name":"Morphling",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["BLINKING","REGENERATION","CATCH"],
+        "weaknesses":["ROOT","CATCH","ANTI HEAL"]
     },
     {
         "name":"Muerta",
@@ -344,26 +338,32 @@
     {
         "name":"Naga Siren",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["ROOT","SWARM"],
+        "weaknesses":["AOE"]
     },
     {
         "name":"Nyx Assassin",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["INVISIBILITY","CATCH"],
+        "weaknesses":["TRUE SIGHT"]
     },
     {
         "name":"Phantom Assassin",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["BLINKING","PASSIVE"],
+        "weaknesses":["ROOT","CATCH","BREAK"]
+    },
+    {
+        "name":"Phantom Lancer",
+        "attribute":"Agility",
+        "strengths":["SWARM","FAST","BLINKING"],
+        "weaknesses":["AOE","CATCH","ROOT"]
     },
     {
         "name":"Riki",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["INVISIBILITY","BLINKING"],
+        "weaknesses":["ROOT","CATCH","TRUE SIGHT"]
     },
     {
         "name":"Shadow Fiend",
@@ -374,56 +374,56 @@
     {
         "name":"Slark",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["BLINKING","REGENERATION","ROOT"],
+        "weaknesses":["ROOT","ANTI HEAL","CATCH"]
     },
     {
         "name":"Sniper",
         "attribute":"Agility",
-        "strengths":[],
+        "strengths":["SLOW"],
         "weaknesses":[]
     },
     {
         "name":"Spectre",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["SLOW","PASSIVE"],
+        "weaknesses":["BREAK"]
     },
     {
         "name":"Templar Assassin",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["INVISIBILITY","SLOW"],
+        "weaknesses":["ANTI HEAL"]
     },
     {
         "name":"Terrorblade",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["SWARM"],
+        "weaknesses":["AOE","ANTI HEAL"]
     },
     {
         "name":"Troll Warlord",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["SLOW","REGENERATION","FAST"],
+        "weaknesses":["ANTI HEAL","SLOW","ROOT","CATCH"]
     },
     {
         "name":"Ursa",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["SLOW","FAST"],
+        "weaknesses":["ROOT","SLOW","CATCH"]
     },
     {
         "name":"Viper",
         "attribute":"Agility",
-        "strengths":[],
+        "strengths":["BREAK","SLOW"],
         "weaknesses":[]
     },
     {
         "name":"Weaver",
         "attribute":"Agility",
-        "strengths":[],
-        "weaknesses":[]
+        "strengths":["INVISIBILITY","FAST"],
+        "weaknesses":["ROOT","CATCH"]
     }
     
     
