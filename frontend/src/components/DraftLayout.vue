@@ -14,7 +14,6 @@
       <TeamButton :teamName="'radiant'" :TeamSelect="TeamSelect" />
     </div>
 
-
     <button @click="ResetDraft" v-if="selectedTeam" class="RESET">Reset</button>
 
     <div class="STR">
@@ -63,6 +62,25 @@ const dire = ref<Hero[]>([]);
 const selectedTeam = ref<Team | null>(null);
 
 //const heroes = ; //TODO need to bring heroes in from the backend
+
+// TODO heroes can be clicked on the top of the screen to remove them from that team
+// TODO start doing the logic of the hero recommendation
+  /*
+  recommendation logic:
+    for all heroes in chosenTeam
+      add all unique strengths to a list of teamStrengths, count amount of each
+      add all unique weaknesses to a list of teamWeaknesses, count amount of each
+    for all heroes in enemyTeam
+      add all unique weaknesses to a list of enemyWeaknesses, count amount of each
+      add all unique strengths to a list of enemyStrengths, count amount of each
+
+    sort all team and enemy strengths and weaknesses by count
+
+    for weaknesses in enemyWeaknesses:
+      if already in teamStrengths, move on
+      else for all heroes, add unique heroes to list of recommendations that aren't already there and who's weaknesses don't match the enemyStrengths
+
+  */
 
 const TeamSelect = (team: Team) => {
   selectedTeam.value = team;
