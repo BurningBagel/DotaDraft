@@ -62,6 +62,8 @@ const dire = ref<Hero[]>([]);
 
 const selectedTeam = ref<Team | null>(null);
 
+//const heroes = ; //TODO need to bring heroes in from the backend
+
 const TeamSelect = (team: Team) => {
   selectedTeam.value = team;
 }
@@ -76,10 +78,10 @@ const AddHero = (team: String, hero: Hero) => {
   const chosenTeam = team === "radiant" ? radiant.value : dire.value;
   const otherTeam = team === "radiant" ? dire.value : radiant.value;
 
-  if (!chosenTeam.includes(hero) && chosenTeam.length <= 5) {
+  if (!chosenTeam.includes(hero) && chosenTeam.length < 5) {
     chosenTeam.push(hero);
   }
-  else {
+  else if(chosenTeam.includes(hero)){ //if the hero is already present in the team, remove them
     chosenTeam.splice(chosenTeam.findIndex((item) => { return item.name == hero.name }), 1)
   }
 
@@ -121,8 +123,8 @@ const uniHeroes = computed(() =>
   grid-auto-flow: row;
   grid-template-areas:
     "RADIANT RADIANT RADIANT RADIANT RADIANT SELECT-RADIANT SELECT-RADIANT SELECT-DIRE SELECT-DIRE DIRE DIRE DIRE DIRE DIRE"
-    ". STR STR . AGI AGI INFO INFO INT INT . UNI UNI ."
-    ". STR STR . AGI AGI INFO INFO INT INT . UNI UNI .";
+    ". STR STR AGI AGI . INFO INFO . INT INT UNI UNI ."
+    ". STR STR AGI AGI . INFO INFO . INT INT UNI UNI .";
 }
 
 ul {
@@ -152,13 +154,11 @@ ul {
 }
 
 .SELECT-DIRE {
-  border: 1px solid red;
   grid-area: SELECT-DIRE;
 }
 
 .SELECT-RADIANT {
   grid-area: SELECT-RADIANT;
-  border: 1px solid green;
 }
 
 .STR {

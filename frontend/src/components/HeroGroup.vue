@@ -9,7 +9,7 @@
         @click.left="() => OnSelect('radiant', hero)"
         @click.right.prevent="() => OnSelect('dire', hero)"
       >
-        <img :src="`/images/heroes/${hero.name.toLowerCase()}.webp`" :alt="`${hero.name}`" />
+        <img :src="`/images/heroes/${hero.name}_icon.webp`" :alt="`${hero.name}`" />
       </div>
     </div>
   </div>

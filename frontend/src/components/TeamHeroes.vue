@@ -5,7 +5,7 @@
             :key="hero.name"
             class="hero-tile"
         >
-        <img :src="`/images/heroes/${hero.name.toLowerCase()}.webp`" :alt="`${hero.name}`"/>
+        <img :src="`/images/heroes/${hero.name}_icon.webp`" :alt="`${hero.name}`"/>
 
         </div>
     </div>

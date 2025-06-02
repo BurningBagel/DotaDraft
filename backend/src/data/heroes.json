@@ -24,13 +24,13 @@
         "weaknesses":["BREAK","CATCH","SLOW","ROOT"]
     },
     {
-        "name":"Centaur Warrunner",
+        "name":"Centaur_Warrunner",
         "attribute":"Strength",
         "strengths":["CATCH","FAST"],
         "weaknesses":["SLOW","CATCH","ROOT"]
     },
     {
-        "name":"Chaos Knight",
+        "name":"Chaos_Knight",
         "attribute":"Strength",
         "strengths":["SWARM","CATCH","REGENERATION"],
         "weaknesses":["AOE","ANTI HEAL"]
@@ -54,13 +54,13 @@
         "weaknesses":[]
     },
     {
-        "name":"Dragon Knight",
+        "name":"Dragon_Knight",
         "attribute":"Strength",
         "strengths":["PASSIVE"],
         "weaknesses":["BREAK"]
     },
     {
-        "name":"Earth Spirit",
+        "name":"Earth_Spirit",
         "attribute":"Strength",
         "strengths":["CATCH","SLOW"],
         "weaknesses":["CATCH"]
@@ -72,7 +72,7 @@
         "weaknesses":[]
     },
     {
-        "name":"Elder Titan",
+        "name":"Elder_Titan",
         "attribute":"Strength",
         "strengths":["AOE"],
         "weaknesses":[]
@@ -90,7 +90,7 @@
         "weaknesses":[]
     },
     {
-        "name":"Legion Commander",
+        "name":"Legion_Commander",
         "attribute":"Strength",
         "strengths":["CATCH"],
         "weaknesses":["ANTI HEAL"]
@@ -114,13 +114,13 @@
         "weaknesses":["BREAK"]
     },
     {
-        "name":"Night Stalker",
+        "name":"Night_Stalker",
         "attribute":"Strength",
         "strengths":["FAST","SLOW","PASSIVE"],
         "weaknesses":["BREAK","SLOW","ROOT"]
     },
     {
-        "name":"Ogre Magi",
+        "name":"Ogre_Magi",
         "attribute":"Strength",
         "strengths":["CATCH","SLOW"],
         "weaknesses":[]
@@ -138,7 +138,7 @@
         "weaknesses":["ANTI HEAL","ROOT"]
     },
     {
-        "name":"Primal Beast",
+        "name":"Primal_Beast",
         "attribute":"Strength",
         "strengths":["CATCH","FAST","AOE"],
         "weaknesses":["SLOW","ROOT"]
@@ -156,7 +156,7 @@
         "weaknesses":["SLOW","ROOT"]
     },
     {
-        "name":"Spirit Breaker",
+        "name":"Spirit_Breaker",
         "attribute":"Strength",
         "strengths":["CATCH","FAST"],
         "weaknesses":["CATCH","SLOW","ROOT"]
@@ -186,7 +186,7 @@
         "weaknesses":[]
     },
     {
-        "name":"Treant Protector",
+        "name":"Treant_Protector",
         "attribute":"Strength",
         "strengths":["SLOW","ROOT","INVISIBILITY"],
         "weaknesses":["TRUE SIGHT"]
@@ -210,7 +210,7 @@
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Wraith King",
+        "name":"Wraith_King",
         "attribute":"Strength",
         "strengths":["CATCH"],
         "weaknesses":[]
@@ -228,7 +228,7 @@
         "weaknesses":["SLOW","ANTI HEAL","TRUE SIGHT","CATCH","ROOT"]
     },
     {
-        "name":"Bounty Hunter",
+        "name":"Bounty_Hunter",
         "attribute":"Agility",
         "strengths":["INVISIBILITY","TRUE SIGHT","FAST"],
         "weaknesses":["TRUE SIGHT","SLOW","CATCH","ROOT"]
@@ -246,19 +246,19 @@
         "weaknesses":["TRUE SIGHT","SLOW","CATCH","ROOT"]
     },
     {
-        "name":"Drow Ranger",
+        "name":"Drow_Ranger",
         "attribute":"Agility",
         "strengths":["PASSIVE","SLOW","ANTI HEAL"],
         "weaknesses":["BREAK","BLINKING"]
     },
     {
-        "name":"Ember Spirit",
+        "name":"Ember_Spirit",
         "attribute":"Agility",
         "strengths":["BLINKING"],
         "weaknesses":["ROOT","CATCH"]
     },
     {
-        "name":"Faceless Void",
+        "name":"Faceless_Void",
         "attribute":"Agility",
         "strengths":["CATCH","BLINKING"],
         "weaknesses":["ROOT","CATCH"]
@@ -288,7 +288,7 @@
         "weaknesses":["TRUE SIGHT","ROOT","CATCH"]
     },
     {
-        "name":"Lone Druid",
+        "name":"Lone_Druid",
         "attribute":"Agility",
         "strengths":["ROOT"],
         "weaknesses":[]
@@ -318,7 +318,7 @@
         "weaknesses":["ROOT","CATCH"]
     },
     {
-        "name":"Monkey King",
+        "name":"Monkey_King",
         "attribute":"Agility",
         "strengths":["BLINKING","REGENERATION","CATCH"],
         "weaknesses":["ANTI HEAL","ROOT","CATCH"]
@@ -330,25 +330,25 @@
         "weaknesses":["ROOT","CATCH","ANTI HEAL"]
     },
     {
-        "name":"Naga Siren",
+        "name":"Naga_Siren",
         "attribute":"Agility",
         "strengths":["ROOT","SWARM"],
         "weaknesses":["AOE"]
     },
     {
-        "name":"Nyx Assassin",
+        "name":"Nyx_Assassin",
         "attribute":"Universal",
         "strengths":["INVISIBILITY","CATCH"],
         "weaknesses":["TRUE SIGHT"]
     },
     {
-        "name":"Phantom Assassin",
+        "name":"Phantom_Assassin",
         "attribute":"Agility",
         "strengths":["BLINKING","PASSIVE"],
         "weaknesses":["ROOT","CATCH","BREAK"]
     },
     {
-        "name":"Phantom Lancer",
+        "name":"Phantom_Lancer",
         "attribute":"Agility",
         "strengths":["SWARM","FAST","BLINKING"],
         "weaknesses":["AOE","CATCH","ROOT"]
@@ -366,7 +366,7 @@
         "weaknesses":["ROOT","CATCH","TRUE SIGHT"]
     },
     {
-        "name":"Shadow Fiend",
+        "name":"Shadow_Fiend",
         "attribute":"Agility",
         "strengths":[],
         "weaknesses":[]
@@ -390,7 +390,7 @@
         "weaknesses":["BREAK"]
     },
     {
-        "name":"Templar Assassin",
+        "name":"Templar_Assassin",
         "attribute":"Agility",
         "strengths":["INVISIBILITY","SLOW"],
         "weaknesses":["ANTI HEAL"]
@@ -402,7 +402,7 @@
         "weaknesses":["AOE","ANTI HEAL"]
     },
     {
-        "name":"Troll Warlord",
+        "name":"Troll_Warlord",
         "attribute":"Agility",
         "strengths":["SLOW","REGENERATION","FAST"],
         "weaknesses":["ANTI HEAL","SLOW","ROOT","CATCH"]
@@ -414,7 +414,7 @@
         "weaknesses":["ROOT","SLOW","CATCH"]
     },
     {
-        "name":"Vengeful Spirit",
+        "name":"Vengeful_Spirit",
         "attribute":"Agility",
         "strengths":["CATCH"],
         "weaknesses":[]
@@ -432,7 +432,7 @@
         "weaknesses":["ROOT","CATCH"]
     },
     {
-        "name":"Ancient Apparition",
+        "name":"Ancient_Apparition",
         "attribute":"Intelligence",
         "strengths":["SLOW","ANTI HEAL"],
         "weaknesses":[]
@@ -444,19 +444,19 @@
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Crystal Maiden",
+        "name":"Crystal_Maiden",
         "attribute":"Intelligence",
         "strengths":["ROOT"],
         "weaknesses":[]
     },
     {
-        "name":"Dark Seer",
+        "name":"Dark_Seer",
         "attribute":"Intelligence",
         "strengths":["FAST"],
         "weaknesses":["ROOT","CATCH"]
     },
     {
-        "name":"Dark Willow",
+        "name":"Dark_Willow",
         "attribute":"Intelligence",
         "strengths":["CATCH"],
         "weaknesses":[]
@@ -492,7 +492,7 @@
         "weaknesses":[]
     },
     {
-        "name":"Keeper of the Light",
+        "name":"Keeper_of_the_Light",
         "attribute":"Intelligence",
         "strengths":["SLOW"],
         "weaknesses":[]
@@ -540,7 +540,7 @@
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Outworld Destroyer",
+        "name":"Outworld_Destroyer",
         "attribute":"Intelligence",
         "strengths":["CATCH"],
         "weaknesses":[]
@@ -558,7 +558,7 @@
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Queen of Pain",
+        "name":"Queen_of_Pain",
         "attribute":"Intelligence",
         "strengths":["BLINKING"],
         "weaknesses":["ROOT","CATCH"]
@@ -576,13 +576,13 @@
         "weaknesses":[]
     },
     {
-        "name":"Shadow Demon",
+        "name":"Shadow_Demon",
         "attribute":"Intelligence",
         "strengths":["SLOW","ROOT"],
         "weaknesses":[]
     },
     {
-        "name":"Shadow Shaman",
+        "name":"Shadow_Shaman",
         "attribute":"Intelligence",
         "strengths":["CATCH"],
         "weaknesses":[]
@@ -594,13 +594,13 @@
         "weaknesses":[]
     },
     {
-        "name":"Skywrath Mage",
+        "name":"Skywrath_Mage",
         "attribute":"Intelligence",
         "strengths":["SLOW"],
         "weaknesses":[]
     },
     {
-        "name":"Storm Spirit",
+        "name":"Storm_Spirit",
         "attribute":"Intelligence",
         "strengths":["BLINKING"],
         "weaknesses":["ROOT","CATCH"]
@@ -618,13 +618,13 @@
         "weaknesses":[]
     },
     {
-        "name":"Winter Wyvern",
+        "name":"Winter_Wyvern",
         "attribute":"Intelligence",
         "strengths":["REGENERATION","SLOW"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Witch Doctor",
+        "name":"Witch_Doctor",
         "attribute":"Intelligence",
         "strengths":["CATCH","REGENERATION"],
         "weaknesses":["ANTI HEAL"]
@@ -636,7 +636,7 @@
         "weaknesses":["ROOT"]
     },
     {
-        "name":"Arc Warden",
+        "name":"Arc_Warden",
         "attribute":"Universal",
         "strengths":["SLOW"],
         "weaknesses":[]
@@ -672,7 +672,7 @@
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Death Prophet",
+        "name":"Death_Prophet",
         "attribute":"Universal",
         "strengths":["REGENERATION","SLOW","AOE"],
         "weaknesses":["ANTI HEAL"]
@@ -702,7 +702,7 @@
         "weaknesses":["ROOT"]
     },
     {
-        "name":"Nature's Prophet",
+        "name":"Nature's_Prophet",
         "attribute":"Universal",
         "strengths":[],
         "weaknesses":[]
@@ -714,7 +714,7 @@
         "weaknesses":[]
     },
     {
-        "name":"Sand King",
+        "name":"Sand_King",
         "attribute":"Universal",
         "strengths":["CATCH"],
         "weaknesses":[]
@@ -744,7 +744,7 @@
         "weaknesses":[]
     },
     {
-        "name":"Void Spirit",
+        "name":"Void_Spirit",
         "attribute":"Universal",
         "strengths":["BLINKING"],
         "weaknesses":["ROOT","CATCH"]
