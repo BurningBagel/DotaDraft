@@ -4,6 +4,7 @@
             v-for="hero in team"
             :key="hero.name"
             class="hero-tile"
+            @click.left="()=>OnSelect(chosenTeam,hero)"
         >
         <img :src="`/images/heroes/${hero.name}_icon.webp`" :alt="`${hero.name}`"/>
 
@@ -14,7 +15,8 @@
 <script setup>
 defineProps({
     team: Array,
-    chosenTeam: String
+    chosenTeam: String,
+    OnSelect: Function
 })
 </script>
 

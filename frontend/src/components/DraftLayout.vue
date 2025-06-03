@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div class="RADIANT">
-      <TeamHeroes :team="radiant" :chosenTeam="'radiant'" />
+      <TeamHeroes :team="radiant" :chosenTeam="'radiant'" :OnSelect="RemoveHero"/>
     </div>
     <div class="DIRE">
-      <TeamHeroes :team="dire" :chosenTeam="'dire'" />
+      <TeamHeroes :team="dire" :chosenTeam="'dire'" :OnSelect="RemoveHero"/>
     </div>
 
     <div class="SELECT-DIRE" v-if="!selectedTeam">
@@ -30,8 +30,8 @@
         <li>Select your Team choosing one of the buttons above</li>
         <li>Use Left Click to add a Hero to the Radiant or Right Click to add to the Dire</li>
         <li>Click again on any hero to remove them from that team</li>
-        <li>Below here you'll see recommendations on heroes you might want to pick based on your enemies strengths, as
-          well as items you'll want to consider picking up!</li>
+        <li>Here you'll see recommendations on heroes you might want to pick based on your enemies strengths, as
+          well as items you'll want to consider picking up once the draft's complete!</li>
       </ul>
 
     </div>
@@ -90,6 +90,12 @@ const ResetDraft = () => {
   selectedTeam.value = null;
   radiant.value = [];
   dire.value = [];
+}
+
+const RemoveHero = (team: String, hero: Hero) => {
+  const chosenTeam = team === "radiant" ? radiant.value : dire.value;
+
+  chosenTeam.splice(chosenTeam.findIndex((item)=>{return item.name == hero.name}),1)
 }
 
 const AddHero = (team: String, hero: Hero) => {
