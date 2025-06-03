@@ -61,6 +61,8 @@ const dire = ref<Hero[]>([]);
 
 const selectedTeam = ref<Team | null>(null);
 
+// TODO filter heroes in main screen like in the game
+
 //const heroes = ; //TODO need to bring heroes in from the backend
 
 // TODO heroes can be clicked on the top of the screen to remove them from that team
