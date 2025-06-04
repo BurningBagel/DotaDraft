@@ -7,14 +7,14 @@
       <TeamHeroes :team="dire" :chosenTeam="'dire'" :OnSelect="RemoveHero"/>
     </div>
 
-    <div class="SELECT-DIRE" v-if="!selectedTeam">
+    <div class="SELECT-DIRE" v-if="!selectedTeamName">
       <TeamButton :teamName="'dire'" :TeamSelect="TeamSelect" />
     </div>
-    <div class="SELECT-RADIANT" v-if="!selectedTeam">
+    <div class="SELECT-RADIANT" v-if="!selectedTeamName">
       <TeamButton :teamName="'radiant'" :TeamSelect="TeamSelect" />
     </div>
 
-    <button @click="ResetDraft" v-if="selectedTeam" class="RESET">Reset</button>
+    <button @click="ResetDraft" v-if="selectedTeamName" class="RESET">Reset</button>
 
     <div class="STR">
       <HeroGroup :title="'Strength'" :heroes="strHeroes" :OnSelect="AddHero" />
@@ -54,18 +54,17 @@ import type { Hero } from "../shared/models/hero.model.ts";
 import { ref } from "vue";
 import TeamHeroes from "./TeamHeroes.vue";
 import TeamButton from "./TeamButton.vue";
-import type { Team } from "../shared/enums/team.enum.ts";
+import { Team } from "../shared/enums/team.enum.ts";
 
 const radiant = ref<Hero[]>([]);
 const dire = ref<Hero[]>([]);
 
-const selectedTeam = ref<Team | null>(null);
+const selectedTeamName = ref<Team | null>(null);
 
 // TODO filter heroes in main screen like in the game
 
 //const heroes = ; //TODO need to bring heroes in from the backend
 
-// TODO heroes can be clicked on the top of the screen to remove them from that team
 // TODO start doing the logic of the hero recommendation
   /*
   recommendation logic:
@@ -85,13 +84,46 @@ const selectedTeam = ref<Team | null>(null);
   */
 
 const TeamSelect = (team: Team) => {
-  selectedTeam.value = team;
+  selectedTeamName.value = team;
 }
 
 const ResetDraft = () => {
-  selectedTeam.value = null;
+  selectedTeamName.value = null;
   radiant.value = [];
   dire.value = [];
+}
+
+function HeroRecommendations(){
+  const [selectedTeam,enemyTeam] = selectedTeamName.value == Team.Radiant ? [radiant,dire] : [dire,radiant]; // TODO defaults to dire,radiant if selectedTeam is null. Need to treat null value 
+  var teamStrengths:String[] = [];
+  var teamWeaknesses:String[] = [];
+  var enemyStrengths:String[] = [];
+  var enemyWeaknesses:String[] = [];
+
+  var recommendations:String[] = [];
+  
+  //TODO change to count instances of each strength/weakness
+
+  selectedTeam.value.forEach(hero => {
+    hero.strengths.forEach(strength => {
+      if(!teamStrengths.includes(strength)) teamStrengths.push(strength);
+    });
+    hero.weaknesses.forEach(weakness => {
+      if(!teamWeaknesses.includes(weakness)) teamWeaknesses.push(weakness);
+    })
+  });
+
+  enemyTeam.value.forEach(hero => {
+    hero.strengths.forEach(strength => {
+      if(!enemyStrengths.includes(strength)) enemyStrengths.push(strength);
+    });
+    hero.weaknesses.forEach(weakness => {
+      if(!enemyWeaknesses.includes(weakness)) enemyWeaknesses.push(weakness);
+    })
+  });
+
+
+
 }
 
 const RemoveHero = (team: String, hero: Hero) => {
