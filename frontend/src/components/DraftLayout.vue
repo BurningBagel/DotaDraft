@@ -93,36 +93,62 @@ const ResetDraft = () => {
   dire.value = [];
 }
 
+
 function HeroRecommendations(){
   const [selectedTeam,enemyTeam] = selectedTeamName.value == Team.Radiant ? [radiant,dire] : [dire,radiant]; // TODO defaults to dire,radiant if selectedTeam is null. Need to treat null value 
-  var teamStrengths:String[] = [];
-  var teamWeaknesses:String[] = [];
-  var enemyStrengths:String[] = [];
-  var enemyWeaknesses:String[] = [];
+  var teamStrengths:{strength:string,count:number}[] = [];
+  var teamWeaknesses:{weakness:string,count:number}[] = [];
+  var enemyStrengths:{strength:string,count:number}[] = [];
+  var enemyWeaknesses:{weakness:string,count:number}[] = [];
 
-  var recommendations:String[] = [];
+  let countMapStrength = new Map<string,number>(); //Maps are like sets, every key is unique. New one added w/ same key -> overwrite
+  let countMapWeakness = new Map<string,number>();
+
+  var recommendations:string[] = [];
   
-  //TODO change to count instances of each strength/weakness
 
-  selectedTeam.value.forEach(hero => {
+  selectedTeam.value.forEach(hero => { // TODO put this in a function
     hero.strengths.forEach(strength => {
-      if(!teamStrengths.includes(strength)) teamStrengths.push(strength);
+      countMapStrength.set(strength,(countMapStrength.get(strength) || 0) + 1); //adds to map, overwrites count each time
     });
     hero.weaknesses.forEach(weakness => {
-      if(!teamWeaknesses.includes(weakness)) teamWeaknesses.push(weakness);
-    })
+      countMapWeakness.set(weakness,(countMapWeakness.get(weakness) || 0) + 1);
+    });
   });
 
-  enemyTeam.value.forEach(hero => {
+  countMapStrength.forEach((count,strength) => {
+    teamStrengths.push({strength,count})
+  })
+  countMapWeakness.forEach((count,weakness) => {
+    teamWeaknesses.push({weakness,count})
+  })
+
+  countMapStrength.clear();
+  countMapWeakness.clear();
+  
+  enemyTeam.value.forEach(hero => { 
     hero.strengths.forEach(strength => {
-      if(!enemyStrengths.includes(strength)) enemyStrengths.push(strength);
+      countMapStrength.set(strength,(countMapStrength.get(strength) || 0) + 1);
     });
     hero.weaknesses.forEach(weakness => {
-      if(!enemyWeaknesses.includes(weakness)) enemyWeaknesses.push(weakness);
-    })
+      countMapWeakness.set(weakness,(countMapWeakness.get(weakness) || 0) + 1);
+    });
   });
 
+  countMapStrength.forEach((count,strength) => {
+    enemyStrengths.push({strength,count})
+  })
+  countMapWeakness.forEach((count,weakness) => {
+    enemyWeaknesses.push({weakness,count})
+  })
+  
 
+// now how to do recommendations?
+  enemyWeaknesses.forEach((anchor) => {
+    if(!teamStrengths.some((item) => {item.strength === anchor.weakness})){
+      //add all heroes with this weakness as a strength to recommendations, along with the count.
+    }
+  })
 
 }
 
