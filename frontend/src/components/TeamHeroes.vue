@@ -6,7 +6,7 @@
             class="hero-tile"
             @click.left="()=>OnSelect(chosenTeam,hero)"
         >
-        <img :src="`/images/heroes/${hero.name}_icon.webp`" :alt="`${hero.name}`"/>
+            <img :src="`/images/heroes/${hero.name}_icon.webp`" :alt="`${hero.name}`"/>
 
         </div>
     </div>

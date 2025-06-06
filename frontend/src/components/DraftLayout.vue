@@ -23,7 +23,7 @@
       <HeroGroup :title="'Agility'" :heroes="agiHeroes" :OnSelect="AddHero" />
     </div>
 
-    <div class="INFO">
+    <div class="INFO" v-if="radiant.length == 0 || dire.length == 0">
       <h3>Welcome to the Dota Draft Assistant!</h3>
 
       <ul>
@@ -34,6 +34,13 @@
           well as items you'll want to consider picking up once the draft's complete!</li>
       </ul>
 
+    </div>
+    <div class="INFO" v-if="radiant.length > 0 && dire.length > 0">
+      <ul>
+        <li v-for="rec in recommendations">
+          {{ rec }}
+        </li>
+      </ul>
     </div>
 
     <div class="INT">
@@ -60,6 +67,8 @@ const radiant = ref<Hero[]>([]);
 const dire = ref<Hero[]>([]);
 
 const selectedTeamName = ref<Team | null>(null);
+
+var recommendations = ref<string[]>([]);
 
 // TODO filter heroes in main screen like in the game
 // TODO switch explanation text with recommendations after there's at least 1 hero on each team
@@ -115,16 +124,18 @@ function countStrengthsWeaknesses(strengthsArray:Array<{strength:string,count:nu
   })
 }
 
-function HeroRecommendations() : Array<string>{
+function UpdateHeroRecommendations(){
   const [selectedTeam,enemyTeam] = selectedTeamName.value == Team.Radiant ? [radiant.value,dire.value] : [dire.value,radiant.value]; // TODO defaults to dire,radiant if selectedTeam is null. Need to treat null value 
   var teamStrengths:{strength:string,count:number}[] = [];
   var teamWeaknesses:{weakness:string,count:number}[] = [];
   var enemyStrengths:{strength:string,count:number}[] = [];
   var enemyWeaknesses:{weakness:string,count:number}[] = [];
 
-  var recommendations:string[] = [];
+  recommendations.value = []; //clear current recs
+
   
-  countStrengthsWeaknesses(teamStrengths,teamWeaknesses,selectedTeam); //TODO need to check if passing the pointer's value will work or if need to pass the pointer
+  
+  countStrengthsWeaknesses(teamStrengths,teamWeaknesses,selectedTeam); 
   countStrengthsWeaknesses(enemyStrengths,enemyWeaknesses,enemyTeam);
 
   //HEADS UP needs to take into account there being no recommendations at present
@@ -134,7 +145,7 @@ function HeroRecommendations() : Array<string>{
   enemyWeaknesses.forEach((anchor) => {
     if(!teamStrengths.some((item) => {item.strength === anchor.weakness})){
       (testHeroes as Hero[]).forEach((hero) => { // TODO update with importing from backend
-        if(anchor.weakness in hero.strengths && !recommendations.includes(hero.name) && !selectedTeam.includes(hero)) recommendations.push(hero.name) 
+        if(anchor.weakness in hero.strengths && !recommendations.value.includes(hero.name) && !selectedTeam.includes(hero)) recommendations.value.push(hero.name) 
       })
     }
   })
@@ -145,7 +156,9 @@ function HeroRecommendations() : Array<string>{
 const RemoveHero = (team: String, hero: Hero) => {
   const chosenTeam = team === "radiant" ? radiant.value : dire.value;
 
-  chosenTeam.splice(chosenTeam.findIndex((item)=>{return item.name == hero.name}),1)
+  chosenTeam.splice(chosenTeam.findIndex((item)=>{return item.name == hero.name}),1);
+
+  UpdateHeroRecommendations();
 }
 
 const AddHero = (team: String, hero: Hero) => {
@@ -162,6 +175,8 @@ const AddHero = (team: String, hero: Hero) => {
   if (otherTeam.includes(hero)) {
     otherTeam.splice(otherTeam.findIndex((item) => { return item.name == hero.name }), 1)
   }
+  UpdateHeroRecommendations();
+  console.log(recommendations.value.length)
 };
 
 const strHeroes = computed(() =>
