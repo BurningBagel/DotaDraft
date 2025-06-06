@@ -93,21 +93,12 @@ const ResetDraft = () => {
   dire.value = [];
 }
 
-
-function HeroRecommendations(){
-  const [selectedTeam,enemyTeam] = selectedTeamName.value == Team.Radiant ? [radiant,dire] : [dire,radiant]; // TODO defaults to dire,radiant if selectedTeam is null. Need to treat null value 
-  var teamStrengths:{strength:string,count:number}[] = [];
-  var teamWeaknesses:{weakness:string,count:number}[] = [];
-  var enemyStrengths:{strength:string,count:number}[] = [];
-  var enemyWeaknesses:{weakness:string,count:number}[] = [];
-
+function countStrengthsWeaknesses(strengthsArray:Array<{strength:string,count:number}>,weaknessesArray:Array<{weakness:string,count:number}>,teamMembers:Array<Hero>){
+  
   let countMapStrength = new Map<string,number>(); //Maps are like sets, every key is unique. New one added w/ same key -> overwrite
   let countMapWeakness = new Map<string,number>();
 
-  var recommendations:string[] = [];
-  
-
-  selectedTeam.value.forEach(hero => { // TODO put this in a function
+  teamMembers.forEach(hero => { 
     hero.strengths.forEach(strength => {
       countMapStrength.set(strength,(countMapStrength.get(strength) || 0) + 1); //adds to map, overwrites count each time
     });
@@ -117,31 +108,25 @@ function HeroRecommendations(){
   });
 
   countMapStrength.forEach((count,strength) => {
-    teamStrengths.push({strength,count})
+    strengthsArray.push({strength,count})
   })
   countMapWeakness.forEach((count,weakness) => {
-    teamWeaknesses.push({weakness,count})
+    weaknessesArray.push({weakness,count})
   })
+}
 
-  countMapStrength.clear();
-  countMapWeakness.clear();
-  
-  enemyTeam.value.forEach(hero => { 
-    hero.strengths.forEach(strength => {
-      countMapStrength.set(strength,(countMapStrength.get(strength) || 0) + 1);
-    });
-    hero.weaknesses.forEach(weakness => {
-      countMapWeakness.set(weakness,(countMapWeakness.get(weakness) || 0) + 1);
-    });
-  });
+function HeroRecommendations(){
+  const [selectedTeam,enemyTeam] = selectedTeamName.value == Team.Radiant ? [radiant,dire] : [dire,radiant]; // TODO defaults to dire,radiant if selectedTeam is null. Need to treat null value 
+  var teamStrengths:{strength:string,count:number}[] = [];
+  var teamWeaknesses:{weakness:string,count:number}[] = [];
+  var enemyStrengths:{strength:string,count:number}[] = [];
+  var enemyWeaknesses:{weakness:string,count:number}[] = [];
 
-  countMapStrength.forEach((count,strength) => {
-    enemyStrengths.push({strength,count})
-  })
-  countMapWeakness.forEach((count,weakness) => {
-    enemyWeaknesses.push({weakness,count})
-  })
+  var recommendations:string[] = [];
   
+  countStrengthsWeaknesses(teamStrengths,teamWeaknesses,selectedTeam.value); //TODO need to check if passing the pointer's value will work or if need to pass the pointer
+  countStrengthsWeaknesses(enemyStrengths,enemyWeaknesses,enemyTeam.value);
+
 
 // now how to do recommendations?
   enemyWeaknesses.forEach((anchor) => {
