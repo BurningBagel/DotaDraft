@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import { testHeroes } from "../data/testHeroes.ts";
+import { testHeroes } from "../data/testHeroes.ts"; // TODO replace with import from backend
 import { computed } from "vue";
 import HeroGroup from "./HeroGroup.vue";
 import { Attribute } from "../shared/enums/attribute.enum";
@@ -62,10 +62,10 @@ const dire = ref<Hero[]>([]);
 const selectedTeamName = ref<Team | null>(null);
 
 // TODO filter heroes in main screen like in the game
+// TODO switch explanation text with recommendations after there's at least 1 hero on each team
 
 //const heroes = ; //TODO need to bring heroes in from the backend
 
-// TODO start doing the logic of the hero recommendation
   /*
   recommendation logic:
     for all heroes in chosenTeam
@@ -115,8 +115,8 @@ function countStrengthsWeaknesses(strengthsArray:Array<{strength:string,count:nu
   })
 }
 
-function HeroRecommendations(){
-  const [selectedTeam,enemyTeam] = selectedTeamName.value == Team.Radiant ? [radiant,dire] : [dire,radiant]; // TODO defaults to dire,radiant if selectedTeam is null. Need to treat null value 
+function HeroRecommendations() : Array<string>{
+  const [selectedTeam,enemyTeam] = selectedTeamName.value == Team.Radiant ? [radiant.value,dire.value] : [dire.value,radiant.value]; // TODO defaults to dire,radiant if selectedTeam is null. Need to treat null value 
   var teamStrengths:{strength:string,count:number}[] = [];
   var teamWeaknesses:{weakness:string,count:number}[] = [];
   var enemyStrengths:{strength:string,count:number}[] = [];
@@ -124,17 +124,22 @@ function HeroRecommendations(){
 
   var recommendations:string[] = [];
   
-  countStrengthsWeaknesses(teamStrengths,teamWeaknesses,selectedTeam.value); //TODO need to check if passing the pointer's value will work or if need to pass the pointer
-  countStrengthsWeaknesses(enemyStrengths,enemyWeaknesses,enemyTeam.value);
+  countStrengthsWeaknesses(teamStrengths,teamWeaknesses,selectedTeam); //TODO need to check if passing the pointer's value will work or if need to pass the pointer
+  countStrengthsWeaknesses(enemyStrengths,enemyWeaknesses,enemyTeam);
 
-
-// now how to do recommendations?
+  //HEADS UP needs to take into account there being no recommendations at present
+  //V1 of recommendations. Just adds all unique heroes with useful strengths that haven't already been selected. Mostly just for testing
+  //V2 should take into account number of times each Weakness appears and reflect that in recommendation
+  //V3 should also take into account enemy strengths and avoid heroes with weaknesses that would be caught by them
   enemyWeaknesses.forEach((anchor) => {
     if(!teamStrengths.some((item) => {item.strength === anchor.weakness})){
-      //add all heroes with this weakness as a strength to recommendations, along with the count.
+      (testHeroes as Hero[]).forEach((hero) => { // TODO update with importing from backend
+        if(anchor.weakness in hero.strengths && !recommendations.includes(hero.name) && !selectedTeam.includes(hero)) recommendations.push(hero.name) 
+      })
     }
   })
 
+  return recommendations;
 }
 
 const RemoveHero = (team: String, hero: Hero) => {
