@@ -94,6 +94,7 @@ var recommendations = ref<string[]>([]);
 
 const TeamSelect = (team: Team) => {
   selectedTeamName.value = team;
+  console.log(selectedTeamName.value);
 }
 
 const ResetDraft = () => {
@@ -148,7 +149,7 @@ function UpdateHeroRecommendations(){
     enemyTeam = radiant.value;
   }
   else{
-    throw new Error(`Unknown team name: ${selectedTeamName}`);
+    throw new Error(`Unknown team name: ${selectedTeamName.value}`);
   }
 
   
@@ -156,22 +157,25 @@ function UpdateHeroRecommendations(){
   countStrengthsWeaknesses(teamStrengths,teamWeaknesses,selectedTeam); 
   countStrengthsWeaknesses(enemyStrengths,enemyWeaknesses,enemyTeam);
 
-  console.log("team strengths",teamStrengths)
-  console.log("team weaknesses",teamWeaknesses)
-  console.log("enemy strengths",enemyStrengths)
-  console.log("enemy weaknesses",enemyWeaknesses);
+  // console.log("team strengths",teamStrengths);
+  // console.log("team weaknesses",teamWeaknesses);
+  // console.log("enemy strengths",enemyStrengths);
+  // console.log("enemy weaknesses",enemyWeaknesses);
 
   //HEADS UP needs to take into account there being no recommendations at present
   //V1 of recommendations. Just adds all unique heroes with useful strengths that haven't already been selected. Mostly just for testing
   //V2 should take into account number of times each Weakness appears and reflect that in recommendation
   //V3 should also take into account enemy strengths and avoid heroes with weaknesses that would be caught by them
-  enemyWeaknesses.forEach((anchor) => {
-    if(!teamStrengths.some((item) => {item.strength === anchor.weakness})){
-      (testHeroes as Hero[]).forEach((hero) => { // TODO update with importing from backend
-        if(anchor.weakness in hero.strengths && !recommendations.value.includes(hero.name) && !selectedTeam.includes(hero)) recommendations.value.push(hero.name) 
+  enemyWeaknesses.forEach((enemyTrait) => {
+    if(!teamStrengths.some((teamTrait) => {teamTrait.strength == enemyTrait.weakness})){
+      testHeroes.forEach((hero) => { // TODO update with importing from backend
+        //For every hero, if it includes the enemy's weakness in it's strengths, AND recommendations does not already include it AND the selected team does not already have them, add that heros name to rec
+        if(hero.strengths.includes(enemyTrait.weakness) && !recommendations.value.includes(hero.name) && !selectedTeam.includes(hero)) recommendations.value.push(hero.name); 
       })
     }
   })
+
+  recommendations.value.splice(10);
 
   return recommendations;
 }
@@ -198,8 +202,8 @@ const AddHero = (team: String, hero: Hero) => {
   if (otherTeam.includes(hero)) {
     otherTeam.splice(otherTeam.findIndex((item) => { return item.name == hero.name }), 1)
   }
-  if(chosenTeam.length > 0 && otherTeam.length > 0) UpdateHeroRecommendations();
-  // console.log(recommendations.value.length)
+  if(chosenTeam.length > 0 && otherTeam.length > 0 && selectedTeamName.value) UpdateHeroRecommendations();
+  console.log(recommendations.value.length);
 };
 
 const strHeroes = computed(() =>
