@@ -8,10 +8,10 @@
     </div>
 
     <div class="SELECT-DIRE" v-if="!selectedTeamName">
-      <TeamButton :teamName="'dire'" :TeamSelect="TeamSelect" />
+      <TeamButton :teamName="Team.Dire" :TeamSelect="TeamSelect" />
     </div>
     <div class="SELECT-RADIANT" v-if="!selectedTeamName">
-      <TeamButton :teamName="'radiant'" :TeamSelect="TeamSelect" />
+      <TeamButton :teamName="Team.Radiant" :TeamSelect="TeamSelect" />
     </div>
 
     <button @click="ResetDraft" v-if="selectedTeamName" class="RESET">Reset</button>
@@ -104,8 +104,12 @@ const ResetDraft = () => {
 
 function countStrengthsWeaknesses(strengthsArray:Array<{strength:string,count:number}>,weaknessesArray:Array<{weakness:string,count:number}>,teamMembers:Array<Hero>){
   
-  let countMapStrength = new Map<string,number>(); //Maps are like sets, every key is unique. New one added w/ same key -> overwrite
-  let countMapWeakness = new Map<string,number>();
+  var countMapStrength = new Map<string,number>(); //Maps are like sets, every key is unique. New one added w/ same key -> overwrite
+  var countMapWeakness = new Map<string,number>();
+
+
+  // console.log("inside function");
+  // console.log(strengthsArray,weaknessesArray,teamMembers);
 
   teamMembers.forEach(hero => { 
     hero.strengths.forEach(strength => {
@@ -125,7 +129,9 @@ function countStrengthsWeaknesses(strengthsArray:Array<{strength:string,count:nu
 }
 
 function UpdateHeroRecommendations(){
-  const [selectedTeam,enemyTeam] = selectedTeamName.value == Team.Radiant ? [radiant.value,dire.value] : [dire.value,radiant.value]; // TODO defaults to dire,radiant if selectedTeam is null. Need to treat null value 
+  // var [selectedTeam,enemyTeam] = selectedTeamName.value == Team.Radiant ? [radiant.value,dire.value] : selectedTeamName.value == Team.Dire ? [dire.value,radiant.value]; // TODO defaults to dire,radiant if selectedTeam is null. Need to treat null value 
+  var selectedTeam: Hero[] = [];
+  var enemyTeam: Hero[] = [];
   var teamStrengths:{strength:string,count:number}[] = [];
   var teamWeaknesses:{weakness:string,count:number}[] = [];
   var enemyStrengths:{strength:string,count:number}[] = [];
@@ -133,10 +139,27 @@ function UpdateHeroRecommendations(){
 
   recommendations.value = []; //clear current recs
 
+  if(selectedTeamName.value == Team.Radiant){
+    selectedTeam = radiant.value;
+    enemyTeam = dire.value;
+  }
+  else if(selectedTeamName.value == Team.Dire){
+    selectedTeam = dire.value;
+    enemyTeam = radiant.value;
+  }
+  else{
+    throw new Error(`Unknown team name: ${selectedTeamName}`);
+  }
+
   
   
   countStrengthsWeaknesses(teamStrengths,teamWeaknesses,selectedTeam); 
   countStrengthsWeaknesses(enemyStrengths,enemyWeaknesses,enemyTeam);
+
+  console.log("team strengths",teamStrengths)
+  console.log("team weaknesses",teamWeaknesses)
+  console.log("enemy strengths",enemyStrengths)
+  console.log("enemy weaknesses",enemyWeaknesses);
 
   //HEADS UP needs to take into account there being no recommendations at present
   //V1 of recommendations. Just adds all unique heroes with useful strengths that haven't already been selected. Mostly just for testing
@@ -175,8 +198,8 @@ const AddHero = (team: String, hero: Hero) => {
   if (otherTeam.includes(hero)) {
     otherTeam.splice(otherTeam.findIndex((item) => { return item.name == hero.name }), 1)
   }
-  UpdateHeroRecommendations();
-  console.log(recommendations.value.length)
+  if(chosenTeam.length > 0 && otherTeam.length > 0) UpdateHeroRecommendations();
+  // console.log(recommendations.value.length)
 };
 
 const strHeroes = computed(() =>

@@ -21,11 +21,11 @@ defineProps({
 
 }
 
-.radiant{
+.Radiant{
     background-color: green;
 }
 
-.dire{
+.Dire{
     background-color: red;
 }
 
