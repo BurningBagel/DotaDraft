@@ -38,7 +38,7 @@
     <div class="INFO" v-if="radiant.length > 0 && dire.length > 0">
       <ul>
         <li v-for="rec in recommendations">
-          {{ rec }}
+          {{ rec.name }}
         </li>
       </ul>
     </div>
@@ -68,7 +68,7 @@ const dire = ref<Hero[]>([]);
 
 const selectedTeamName = ref<Team | null>(null);
 
-var recommendations = ref<string[]>([]);
+var recommendations = ref<{name:string,score:number}[]>([]);
 
 // TODO filter heroes in main screen like in the game
 // TODO switch explanation text with recommendations after there's at least 1 hero on each team
@@ -163,17 +163,27 @@ function UpdateHeroRecommendations(){
   // console.log("enemy weaknesses",enemyWeaknesses);
 
   //HEADS UP needs to take into account there being no recommendations at present
-  //V1 of recommendations. Just adds all unique heroes with useful strengths that haven't already been selected. Mostly just for testing
-  //V2 should take into account number of times each Weakness appears and reflect that in recommendation
+  //V1 of recommendations. Just adds all unique heroes with useful strengths that haven't already been selected. Mostly just for testing DONE
+  //V2 should take into account number of times each Weakness appears and reflect that in recommendation list
   //V3 should also take into account enemy strengths and avoid heroes with weaknesses that would be caught by them
   enemyWeaknesses.forEach((enemyTrait) => {
     if(!teamStrengths.some((teamTrait) => {teamTrait.strength == enemyTrait.weakness})){
       testHeroes.forEach((hero) => { // TODO update with importing from backend
         //For every hero, if it includes the enemy's weakness in it's strengths, AND recommendations does not already include it AND the selected team does not already have them, add that heros name to rec
-        if(hero.strengths.includes(enemyTrait.weakness) && !recommendations.value.includes(hero.name) && !selectedTeam.includes(hero)) recommendations.value.push(hero.name); 
+        if(hero.strengths.includes(enemyTrait.weakness) && !selectedTeam.includes(hero)) {
+          let i = recommendations.value.findIndex((anchor) => {anchor.name == hero.name});
+          if(i != -1){
+            recommendations.value[i].score++;
+          }
+          else{
+            recommendations.value.push({name:hero.name,score:1});
+          }
+        }; 
       })
     }
   })
+
+  recommendations.value.sort((a,b) => a.score - b.score)
 
   recommendations.value.splice(10);
 
