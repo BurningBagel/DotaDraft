@@ -38,7 +38,7 @@
     <div class="INFO" v-if="radiant.length > 0 && dire.length > 0">
       <ul>
         <li v-for="rec in recommendations">
-          {{ rec.name }}
+          {{ rec.name }} - {{ rec.score }}
         </li>
       </ul>
     </div>
@@ -71,7 +71,6 @@ const selectedTeamName = ref<Team | null>(null);
 var recommendations = ref<{name:string,score:number}[]>([]);
 
 // TODO filter heroes in main screen like in the game
-// TODO switch explanation text with recommendations after there's at least 1 hero on each team
 
 //const heroes = ; //TODO need to bring heroes in from the backend
 
@@ -94,7 +93,7 @@ var recommendations = ref<{name:string,score:number}[]>([]);
 
 const TeamSelect = (team: Team) => {
   selectedTeamName.value = team;
-  console.log(selectedTeamName.value);
+  // console.log(selectedTeamName.value);
 }
 
 const ResetDraft = () => {
@@ -104,7 +103,6 @@ const ResetDraft = () => {
 }
 
 function countStrengthsWeaknesses(strengthsArray:Array<{strength:string,count:number}>,weaknessesArray:Array<{weakness:string,count:number}>,teamMembers:Array<Hero>){
-  
   var countMapStrength = new Map<string,number>(); //Maps are like sets, every key is unique. New one added w/ same key -> overwrite
   var countMapWeakness = new Map<string,number>();
 
@@ -137,6 +135,7 @@ function UpdateHeroRecommendations(){
   var teamWeaknesses:{weakness:string,count:number}[] = [];
   var enemyStrengths:{strength:string,count:number}[] = [];
   var enemyWeaknesses:{weakness:string,count:number}[] = [];
+  var i:number;
 
   recommendations.value = []; //clear current recs
 
@@ -157,26 +156,28 @@ function UpdateHeroRecommendations(){
   countStrengthsWeaknesses(teamStrengths,teamWeaknesses,selectedTeam); 
   countStrengthsWeaknesses(enemyStrengths,enemyWeaknesses,enemyTeam);
 
-  // console.log("team strengths",teamStrengths);
+  console.log("team strengths",teamStrengths);
   // console.log("team weaknesses",teamWeaknesses);
   // console.log("enemy strengths",enemyStrengths);
-  // console.log("enemy weaknesses",enemyWeaknesses);
+  console.log("enemy weaknesses",enemyWeaknesses);
 
-  //HEADS UP needs to take into account there being no recommendations at present
   //V1 of recommendations. Just adds all unique heroes with useful strengths that haven't already been selected. Mostly just for testing DONE
   //V2 should take into account number of times each Weakness appears and reflect that in recommendation list
+  //TODO V2 scores aren't increasing. Seems like it's overriding 
   //V3 should also take into account enemy strengths and avoid heroes with weaknesses that would be caught by them
   enemyWeaknesses.forEach((enemyTrait) => {
     if(!teamStrengths.some((teamTrait) => {teamTrait.strength == enemyTrait.weakness})){
       testHeroes.forEach((hero) => { // TODO update with importing from backend
         //For every hero, if it includes the enemy's weakness in it's strengths, AND recommendations does not already include it AND the selected team does not already have them, add that heros name to rec
         if(hero.strengths.includes(enemyTrait.weakness) && !selectedTeam.includes(hero)) {
-          let i = recommendations.value.findIndex((anchor) => {anchor.name == hero.name});
-          if(i != -1){
-            recommendations.value[i].score++;
+          i = recommendations.value.findIndex((anchor) => {anchor.name == hero.name});//seems like this isn't returning anything other than -1
+          if(i == -1){
+            recommendations.value.push({name:hero.name,score:enemyTrait.count});
+            // console.log(`pushing hero ${hero.name} with a score of ${enemyTrait.count}`)
           }
           else{
-            recommendations.value.push({name:hero.name,score:1});
+            recommendations.value[i].score+=enemyTrait.count;
+            //console.log("found another one!");//I suppose a hero can be added more than once if it can cover more than 1 weakness
           }
         }; 
       })
@@ -185,7 +186,9 @@ function UpdateHeroRecommendations(){
 
   recommendations.value.sort((a,b) => a.score - b.score)
 
-  recommendations.value.splice(10);
+  // console.log(recommendations.value);
+
+  recommendations.value.splice(20);
 
   return recommendations;
 }
@@ -195,7 +198,7 @@ const RemoveHero = (team: String, hero: Hero) => {
 
   chosenTeam.splice(chosenTeam.findIndex((item)=>{return item.name == hero.name}),1);
 
-  UpdateHeroRecommendations();
+  if(radiant.value.length > 0 && dire.value.length > 0 && selectedTeamName.value) UpdateHeroRecommendations();
 }
 
 const AddHero = (team: String, hero: Hero) => {
@@ -213,7 +216,7 @@ const AddHero = (team: String, hero: Hero) => {
     otherTeam.splice(otherTeam.findIndex((item) => { return item.name == hero.name }), 1)
   }
   if(chosenTeam.length > 0 && otherTeam.length > 0 && selectedTeamName.value) UpdateHeroRecommendations();
-  console.log(recommendations.value.length);
+  // console.log(recommendations.value.length);
 };
 
 const strHeroes = computed(() =>
