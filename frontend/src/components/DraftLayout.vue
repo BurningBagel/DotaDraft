@@ -137,7 +137,10 @@ function UpdateHeroRecommendations(){
   var enemyWeaknesses:{weakness:string,count:number}[] = [];
   var i:number;
 
-  recommendations.value = []; //clear current recs
+  recommendations.value.splice(0); //clear current recs
+
+  console.log("CLEARING RECOMMENDATIONS");
+  console.log([...recommendations.value]);
 
   if(selectedTeamName.value == Team.Radiant){
     selectedTeam = radiant.value;
@@ -156,41 +159,47 @@ function UpdateHeroRecommendations(){
   countStrengthsWeaknesses(teamStrengths,teamWeaknesses,selectedTeam); 
   countStrengthsWeaknesses(enemyStrengths,enemyWeaknesses,enemyTeam);
 
-  console.log("team strengths",teamStrengths);
+  // console.log("team strengths",teamStrengths);
   // console.log("team weaknesses",teamWeaknesses);
   // console.log("enemy strengths",enemyStrengths);
-  console.log("enemy weaknesses",enemyWeaknesses);
+  // console.log("enemy weaknesses",enemyWeaknesses);
 
   //V1 of recommendations. Just adds all unique heroes with useful strengths that haven't already been selected. Mostly just for testing DONE
   //V2 should take into account number of times each Weakness appears and reflect that in recommendation list
   //TODO V2 scores aren't increasing. Seems like it's overriding 
   //V3 should also take into account enemy strengths and avoid heroes with weaknesses that would be caught by them
   enemyWeaknesses.forEach((enemyTrait) => {
-    if(!teamStrengths.some((teamTrait) => {teamTrait.strength == enemyTrait.weakness})){
+    if(!teamStrengths.some((teamTrait) => teamTrait.strength === enemyTrait.weakness)){
       testHeroes.forEach((hero) => { // TODO update with importing from backend
         //For every hero, if it includes the enemy's weakness in it's strengths, AND recommendations does not already include it AND the selected team does not already have them, add that heros name to rec
         if(hero.strengths.includes(enemyTrait.weakness) && !selectedTeam.includes(hero)) {
-          i = recommendations.value.findIndex((anchor) => {anchor.name == hero.name});//seems like this isn't returning anything other than -1
+          i = recommendations.value.findIndex((anchor) => anchor.name === hero.name);
           if(i == -1){
             recommendations.value.push({name:hero.name,score:enemyTrait.count});
-            // console.log(`pushing hero ${hero.name} with a score of ${enemyTrait.count}`)
+            console.log(`pushing hero ${hero.name} with a score of ${enemyTrait.count}`);
+            console.log(recommendations.value);
           }
           else{
-            recommendations.value[i].score+=enemyTrait.count;
-            //console.log("found another one!");//I suppose a hero can be added more than once if it can cover more than 1 weakness
+            // console.log(`found another one! ${recommendations.value[i].name} ${recommendations.value[i].score} ${hero.name}`);//I suppose a hero can be added more than once if it can cover more than 1 weakness
+            recommendations.value[i].score += enemyTrait.count;
+            console.log(`after update, hero ${recommendations.value[i].name} has a score of ${recommendations.value[i].score}`)
+            console.log(recommendations.value);
           }
         }; 
       })
     }
   })
 
-  recommendations.value.sort((a,b) => a.score - b.score)
+    console.log(recommendations.value);
 
-  // console.log(recommendations.value);
+
+  recommendations.value.sort((b,a) => a.score - b.score)
+
+  console.log(recommendations.value);
 
   recommendations.value.splice(20);
 
-  return recommendations;
+  // return recommendations;
 }
 
 const RemoveHero = (team: String, hero: Hero) => {
