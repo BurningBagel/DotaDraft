@@ -23,10 +23,20 @@
     </button>
 
     <div class="STR">
-      <HeroGroup :title="'Strength'" :heroes="strHeroes" :OnSelect="AddHero" />
+      <HeroGroup
+        :title="'Strength'"
+        :heroes="strHeroes"
+        :OnSelect="AddHero"
+        :searchString="searchString"
+      />
     </div>
     <div class="AGI">
-      <HeroGroup :title="'Agility'" :heroes="agiHeroes" :OnSelect="AddHero" />
+      <HeroGroup
+        :title="'Agility'"
+        :heroes="agiHeroes"
+        :OnSelect="AddHero"
+        :searchString="searchString"
+      />
     </div>
 
     <div class="INFO" v-if="radiant.length == 0 || dire.length == 0">
@@ -57,10 +67,16 @@
         :title="'Intelligence'"
         :heroes="intHeroes"
         :OnSelect="AddHero"
+        :searchString="searchString"
       />
     </div>
     <div class="UNI">
-      <HeroGroup :title="'Universal'" :heroes="uniHeroes" :OnSelect="AddHero" />
+      <HeroGroup
+        :title="'Universal'"
+        :heroes="uniHeroes"
+        :OnSelect="AddHero"
+        :searchString="searchString"
+      />
     </div>
   </div>
 </template>
@@ -75,6 +91,10 @@ import { ref } from "vue";
 import TeamHeroes from "./TeamHeroes.vue";
 import TeamButton from "./TeamButton.vue";
 import { Team } from "../shared/enums/team.enum.ts";
+
+defineProps({
+  searchString: String,
+});
 
 const radiant = ref<Hero[]>([]);
 const dire = ref<Hero[]>([]);
@@ -224,13 +244,13 @@ function UpdateHeroRecommendations() {
   //implementing v3. Reduce the scores of all heroes in recommendations for each enemy strength that matches one of their weaknesses
 
   recommendations.value.forEach((rec) => {
-    rec.weaknesses.forEach((weakness)=> {
-      i = enemyStrengths.findIndex((anchor) => anchor.strength === weakness)
-      if(i != -1){
+    rec.weaknesses.forEach((weakness) => {
+      i = enemyStrengths.findIndex((anchor) => anchor.strength === weakness);
+      if (i != -1) {
         rec.score -= enemyStrengths[i].count;
       }
-    })
-  })
+    });
+  });
 
   // console.log(recommendations.value);
 
@@ -238,12 +258,15 @@ function UpdateHeroRecommendations() {
 
   // console.log(recommendations.value);
 
-  recommendations.value.splice(0,recommendations.value.length,...recommendations.value.filter((rec) => rec.score > -1));
+  recommendations.value.splice(
+    0,
+    recommendations.value.length,
+    ...recommendations.value.filter((rec) => rec.score > -1)
+  );
 
   // console.log(recommendations.value.length);
 
-  if(recommendations.value.length > 20) recommendations.value.splice(20);// TODO need to remove any recs with a negative score before splicing down to 20
-
+  if (recommendations.value.length > 20) recommendations.value.splice(20); // TODO need to remove any recs with a negative score before splicing down to 20
 }
 
 const RemoveHero = (team: String, hero: Hero) => {
@@ -314,7 +337,6 @@ const uniHeroes = computed(() =>
 <style lang="css" scoped>
 .container {
   display: grid;
-  border: 1px solid purple;
   width: 100vw;
   height: 100vh;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -340,7 +362,6 @@ ul {
 .RESET {
   grid-area: SELECT-RADIANT / SELECT-RADIANT / SELECT-DIRE / SELECT-DIRE;
   align-items: center;
-  border: 1px solid yellow;
   display: flex;
   justify-content: center;
 }

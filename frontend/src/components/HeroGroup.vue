@@ -6,6 +6,7 @@
         v-for="hero in heroes"
         :key="hero.name"
         class="hero-tile"
+        :class="{ 'dimmed': searchText && !hero.name.toLowerCase().includes(searchText.toLowerCase()) }"
         @click.left="() => OnSelect('radiant', hero)"
         @click.right.prevent="() => OnSelect('dire', hero)"
       >
@@ -20,10 +21,16 @@ defineProps({
   title: String,
   heroes: Array,
   OnSelect: Function,
+  searchString: String
 });
 </script>
 
 <style scoped>
+.hero-tile.dimmed{
+  opacity: 0.3;
+  filter: grayscale(1);
+  transition: opacity 0.3s, filter 0.3s;
+}
 .hero-group {
   padding: 0.5rem;
 }
