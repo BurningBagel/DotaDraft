@@ -1,10 +1,14 @@
 <template>
   <div class="container">
     <div class="RADIANT">
-      <TeamHeroes :team="radiant" :chosenTeam="'radiant'" :OnSelect="RemoveHero"/>
+      <TeamHeroes
+        :team="radiant"
+        :chosenTeam="'radiant'"
+        :OnSelect="RemoveHero"
+      />
     </div>
     <div class="DIRE">
-      <TeamHeroes :team="dire" :chosenTeam="'dire'" :OnSelect="RemoveHero"/>
+      <TeamHeroes :team="dire" :chosenTeam="'dire'" :OnSelect="RemoveHero" />
     </div>
 
     <div class="SELECT-DIRE" v-if="!selectedTeamName">
@@ -14,7 +18,9 @@
       <TeamButton :teamName="Team.Radiant" :TeamSelect="TeamSelect" />
     </div>
 
-    <button @click="ResetDraft" v-if="selectedTeamName" class="RESET">Reset</button>
+    <button @click="ResetDraft" v-if="selectedTeamName" class="RESET">
+      Reset
+    </button>
 
     <div class="STR">
       <HeroGroup :title="'Strength'" :heroes="strHeroes" :OnSelect="AddHero" />
@@ -28,23 +34,30 @@
 
       <ul>
         <li>Select your Team choosing one of the buttons above</li>
-        <li>Use Left Click to add a Hero to the Radiant or Right Click to add to the Dire</li>
+        <li>
+          Use Left Click to add a Hero to the Radiant or Right Click to add to
+          the Dire
+        </li>
         <li>Click again on any hero to remove them from that team</li>
-        <li>Here you'll see recommendations on heroes you might want to pick based on your enemies strengths, as
-          well as items you'll want to consider picking up once the draft's complete!</li>
+        <li>
+          Here you'll see recommendations on heroes you might want to pick based
+          on your enemies strengths, as well as items you'll want to consider
+          picking up once the draft's complete!
+        </li>
       </ul>
-
     </div>
     <div class="INFO" v-if="radiant.length > 0 && dire.length > 0">
       <ul>
-        <li v-for="rec in recommendations">
-          {{ rec.name }} - {{ rec.score }}
-        </li>
+        <li v-for="rec in recommendations">{{ rec.name }} - {{ rec.score }}</li>
       </ul>
     </div>
 
     <div class="INT">
-      <HeroGroup :title="'Intelligence'" :heroes="intHeroes" :OnSelect="AddHero" />
+      <HeroGroup
+        :title="'Intelligence'"
+        :heroes="intHeroes"
+        :OnSelect="AddHero"
+      />
     </div>
     <div class="UNI">
       <HeroGroup :title="'Universal'" :heroes="uniHeroes" :OnSelect="AddHero" />
@@ -68,13 +81,15 @@ const dire = ref<Hero[]>([]);
 
 const selectedTeamName = ref<Team | null>(null);
 
-var recommendations = ref<{name:string,score:number}[]>([]);
+var recommendations = ref<
+  { name: string; weaknesses: string[]; score: number }[]
+>([]);
 
 // TODO filter heroes in main screen like in the game
 
 //const heroes = ; //TODO need to bring heroes in from the backend
 
-  /*
+/*
   recommendation logic:
     for all heroes in chosenTeam
       add all unique strengths to a list of teamStrengths, count amount of each
@@ -94,70 +109,70 @@ var recommendations = ref<{name:string,score:number}[]>([]);
 const TeamSelect = (team: Team) => {
   selectedTeamName.value = team;
   // console.log(selectedTeamName.value);
-}
+};
 
 const ResetDraft = () => {
   selectedTeamName.value = null;
   radiant.value = [];
   dire.value = [];
-}
+};
 
-function countStrengthsWeaknesses(strengthsArray:Array<{strength:string,count:number}>,weaknessesArray:Array<{weakness:string,count:number}>,teamMembers:Array<Hero>){
-  var countMapStrength = new Map<string,number>(); //Maps are like sets, every key is unique. New one added w/ same key -> overwrite
-  var countMapWeakness = new Map<string,number>();
-
+function countStrengthsWeaknesses(
+  strengthsArray: Array<{ strength: string; count: number }>,
+  weaknessesArray: Array<{ weakness: string; count: number }>,
+  teamMembers: Array<Hero>
+) {
+  var countMapStrength = new Map<string, number>(); //Maps are like sets, every key is unique. New one added w/ same key -> overwrite
+  var countMapWeakness = new Map<string, number>();
 
   // console.log("inside function");
   // console.log(strengthsArray,weaknessesArray,teamMembers);
 
-  teamMembers.forEach(hero => { 
-    hero.strengths.forEach(strength => {
-      countMapStrength.set(strength,(countMapStrength.get(strength) || 0) + 1); //adds to map, overwrites count each time
+  teamMembers.forEach((hero) => {
+    hero.strengths.forEach((strength) => {
+      countMapStrength.set(strength, (countMapStrength.get(strength) || 0) + 1); //adds to map, overwrites count each time
     });
-    hero.weaknesses.forEach(weakness => {
-      countMapWeakness.set(weakness,(countMapWeakness.get(weakness) || 0) + 1);
+    hero.weaknesses.forEach((weakness) => {
+      countMapWeakness.set(weakness, (countMapWeakness.get(weakness) || 0) + 1);
     });
   });
 
-  countMapStrength.forEach((count,strength) => {
-    strengthsArray.push({strength,count})
-  })
-  countMapWeakness.forEach((count,weakness) => {
-    weaknessesArray.push({weakness,count})
-  })
+  countMapStrength.forEach((count, strength) => {
+    strengthsArray.push({ strength, count });
+  });
+  countMapWeakness.forEach((count, weakness) => {
+    weaknessesArray.push({ weakness, count });
+  });
 }
 
-function UpdateHeroRecommendations(){
-  // var [selectedTeam,enemyTeam] = selectedTeamName.value == Team.Radiant ? [radiant.value,dire.value] : selectedTeamName.value == Team.Dire ? [dire.value,radiant.value]; // TODO defaults to dire,radiant if selectedTeam is null. Need to treat null value 
+function UpdateHeroRecommendations() {
+  // var [selectedTeam,enemyTeam] = selectedTeamName.value == Team.Radiant ? [radiant.value,dire.value] : selectedTeamName.value == Team.Dire ? [dire.value,radiant.value]; // TODO defaults to dire,radiant if selectedTeam is null. Need to treat null value
   var selectedTeam: Hero[] = [];
   var enemyTeam: Hero[] = [];
-  var teamStrengths:{strength:string,count:number}[] = [];
-  var teamWeaknesses:{weakness:string,count:number}[] = [];
-  var enemyStrengths:{strength:string,count:number}[] = [];
-  var enemyWeaknesses:{weakness:string,count:number}[] = [];
-  var i:number;
+  var teamStrengths: { strength: string; count: number }[] = [];
+  var teamWeaknesses: { weakness: string; count: number }[] = [];
+  var enemyStrengths: { strength: string; count: number }[] = [];
+  var enemyWeaknesses: { weakness: string; count: number }[] = [];
+  var i: number;
 
   recommendations.value.splice(0); //clear current recs
 
-  console.log("CLEARING RECOMMENDATIONS");
-  console.log([...recommendations.value]);
+  // console.log("CLEARING RECOMMENDATIONS");
+  // console.log([...recommendations.value]);
 
-  if(selectedTeamName.value == Team.Radiant){
+  if (selectedTeamName.value == Team.Radiant) {
     selectedTeam = radiant.value;
     enemyTeam = dire.value;
-  }
-  else if(selectedTeamName.value == Team.Dire){
+  } else if (selectedTeamName.value == Team.Dire) {
     selectedTeam = dire.value;
     enemyTeam = radiant.value;
-  }
-  else{
+  } else {
     throw new Error(`Unknown team name: ${selectedTeamName.value}`);
   }
 
-  
-  
-  countStrengthsWeaknesses(teamStrengths,teamWeaknesses,selectedTeam); 
-  countStrengthsWeaknesses(enemyStrengths,enemyWeaknesses,enemyTeam);
+  //TODO teamWeaknesses isn't being used for anything. Maybe change this function?
+  countStrengthsWeaknesses(teamStrengths, teamWeaknesses, selectedTeam);
+  countStrengthsWeaknesses(enemyStrengths, enemyWeaknesses, enemyTeam);
 
   // console.log("team strengths",teamStrengths);
   // console.log("team weaknesses",teamWeaknesses);
@@ -165,50 +180,89 @@ function UpdateHeroRecommendations(){
   // console.log("enemy weaknesses",enemyWeaknesses);
 
   //V1 of recommendations. Just adds all unique heroes with useful strengths that haven't already been selected. Mostly just for testing DONE
-  //V2 should take into account number of times each Weakness appears and reflect that in recommendation list
-  //TODO V2 scores aren't increasing. Seems like it's overriding 
+  //V2 should take into account number of times each Weakness appears and reflect that in recommendation list DONE
   //V3 should also take into account enemy strengths and avoid heroes with weaknesses that would be caught by them
   enemyWeaknesses.forEach((enemyTrait) => {
-    if(!teamStrengths.some((teamTrait) => teamTrait.strength === enemyTrait.weakness)){
-      testHeroes.forEach((hero) => { // TODO update with importing from backend
+    if (
+      !teamStrengths.some(
+        (teamTrait) => teamTrait.strength === enemyTrait.weakness
+      )
+    ) {
+      testHeroes.forEach((hero) => {
+        // TODO update with importing from backend
         //For every hero, if it includes the enemy's weakness in it's strengths, AND recommendations does not already include it AND the selected team does not already have them, add that heros name to rec
-        if(hero.strengths.includes(enemyTrait.weakness) && !selectedTeam.includes(hero)) {
-          i = recommendations.value.findIndex((anchor) => anchor.name === hero.name);
-          if(i == -1){
-            recommendations.value.push({name:hero.name,score:enemyTrait.count});
-            console.log(`pushing hero ${hero.name} with a score of ${enemyTrait.count}`);
-            console.log(recommendations.value);
-          }
-          else{
+        if (
+          hero.strengths.includes(enemyTrait.weakness) &&
+          !selectedTeam.includes(hero)
+        ) {
+          i = recommendations.value.findIndex(
+            (anchor) => anchor.name === hero.name
+          );
+          if (i == -1) {
+            recommendations.value.push({
+              name: hero.name,
+              weaknesses: hero.weaknesses,
+              score: enemyTrait.count,
+            });
+            // console.log(
+            //   `pushing hero ${hero.name} with a score of ${enemyTrait.count}`
+            // );
+            // console.log(recommendations.value);
+          } else {
             // console.log(`found another one! ${recommendations.value[i].name} ${recommendations.value[i].score} ${hero.name}`);//I suppose a hero can be added more than once if it can cover more than 1 weakness
             recommendations.value[i].score += enemyTrait.count;
-            console.log(`after update, hero ${recommendations.value[i].name} has a score of ${recommendations.value[i].score}`)
-            console.log(recommendations.value);
+            // console.log(
+            //   `after update, hero ${recommendations.value[i].name} has a score of ${recommendations.value[i].score}`
+            // );
+            // console.log(recommendations.value);
           }
-        }; 
-      })
+        }
+      });
     }
+  });
+
+  //implementing v3. Reduce the scores of all heroes in recommendations for each enemy strength that matches one of their weaknesses
+
+  recommendations.value.forEach((rec) => {
+    rec.weaknesses.forEach((weakness)=> {
+      i = enemyStrengths.findIndex((anchor) => anchor.strength === weakness)
+      if(i != -1){
+        rec.score -= enemyStrengths[i].count;
+      }
+    })
   })
 
-    console.log(recommendations.value);
+  // console.log(recommendations.value);
 
+  recommendations.value.sort((b, a) => a.score - b.score);
 
-  recommendations.value.sort((b,a) => a.score - b.score)
+  // console.log(recommendations.value);
 
-  console.log(recommendations.value);
+  recommendations.value.splice(0,recommendations.value.length,...recommendations.value.filter((rec) => rec.score > -1));
 
-  recommendations.value.splice(20);
+  // console.log(recommendations.value.length);
 
-  // return recommendations;
+  if(recommendations.value.length > 20) recommendations.value.splice(20);// TODO need to remove any recs with a negative score before splicing down to 20
+
 }
 
 const RemoveHero = (team: String, hero: Hero) => {
   const chosenTeam = team === "radiant" ? radiant.value : dire.value;
 
-  chosenTeam.splice(chosenTeam.findIndex((item)=>{return item.name == hero.name}),1);
+  chosenTeam.splice(
+    chosenTeam.findIndex((item) => {
+      return item.name == hero.name;
+    }),
+    1
+  );
 
-  if(radiant.value.length > 0 && dire.value.length > 0 && selectedTeamName.value) UpdateHeroRecommendations();
-}
+  if (
+    radiant.value.length > 0 &&
+    dire.value.length > 0 &&
+    selectedTeamName.value
+  )
+    UpdateHeroRecommendations();
+};
 
 const AddHero = (team: String, hero: Hero) => {
   const chosenTeam = team === "radiant" ? radiant.value : dire.value;
@@ -216,15 +270,26 @@ const AddHero = (team: String, hero: Hero) => {
 
   if (!chosenTeam.includes(hero) && chosenTeam.length < 5) {
     chosenTeam.push(hero);
-  }
-  else if(chosenTeam.includes(hero)){ //if the hero is already present in the team, remove them
-    chosenTeam.splice(chosenTeam.findIndex((item) => { return item.name == hero.name }), 1)
+  } else if (chosenTeam.includes(hero)) {
+    //if the hero is already present in the team, remove them
+    chosenTeam.splice(
+      chosenTeam.findIndex((item) => {
+        return item.name == hero.name;
+      }),
+      1
+    );
   }
 
   if (otherTeam.includes(hero)) {
-    otherTeam.splice(otherTeam.findIndex((item) => { return item.name == hero.name }), 1)
+    otherTeam.splice(
+      otherTeam.findIndex((item) => {
+        return item.name == hero.name;
+      }),
+      1
+    );
   }
-  if(chosenTeam.length > 0 && otherTeam.length > 0 && selectedTeamName.value) UpdateHeroRecommendations();
+  if (chosenTeam.length > 0 && otherTeam.length > 0 && selectedTeamName.value)
+    UpdateHeroRecommendations();
   // console.log(recommendations.value.length);
 };
 
@@ -244,8 +309,6 @@ const intHeroes = computed(() =>
 const uniHeroes = computed(() =>
   testHeroes.filter((h) => h.attribute == Attribute.Universal)
 );
-
-
 </script>
 
 <style lang="css" scoped>
@@ -269,13 +332,12 @@ ul {
   padding-left: 0.5rem;
 }
 
-
 .INFO {
   grid-area: INFO;
   text-align: center;
 }
 
-.RESET{
+.RESET {
   grid-area: SELECT-RADIANT / SELECT-RADIANT / SELECT-DIRE / SELECT-DIRE;
   align-items: center;
   border: 1px solid yellow;
@@ -301,12 +363,10 @@ ul {
 
 .STR {
   grid-area: STR;
-  border: 1px solid red;
 }
 
 .UNI {
   grid-area: UNI;
-  border: 1px solid orange;
 }
 
 .INT {
@@ -315,6 +375,5 @@ ul {
 
 .AGI {
   grid-area: AGI;
-  border: 1px solid green;
 }
 </style>
