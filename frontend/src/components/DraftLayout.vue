@@ -187,6 +187,7 @@ function UpdateHeroRecommendations() {
     selectedTeam = dire.value;
     enemyTeam = radiant.value;
   } else {
+    // TODO send a message to the user to remind them to pick a team and return here
     throw new Error(`Unknown team name: ${selectedTeamName.value}`);
   }
 
@@ -267,6 +268,8 @@ function UpdateHeroRecommendations() {
   // console.log(recommendations.value.length);
 
   if (recommendations.value.length > 20) recommendations.value.splice(20); 
+
+  recommendations.value.map((rec) => {rec.name = rec.name.replace('_',' ')}); //replaces all the underscores with spaces.
 }
 
 const RemoveHero = (team: String, hero: Hero) => {
