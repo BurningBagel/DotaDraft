@@ -3,7 +3,7 @@
 import DraftLayout from './DraftLayout.vue';
 
   const message = ref('Loading...');
-  const searchText = ref("");
+  const searchString = ref("");
   let searchTimeout:number|null = null;
 
   function handleKeyPress(event:KeyboardEvent){
@@ -11,15 +11,15 @@ import DraftLayout from './DraftLayout.vue';
     const key = event.key;
 
     if(key.length == 1 && /^[a-zA-Z_]$/.test(key)){
-      searchText.value += key;
+      searchString.value += key;
     }
     else if(key == "Backspace"){
-      searchText.value = searchText.value.slice(0,-1);
+      searchString.value = searchString.value.slice(0,-1);
     }
 
     if(searchTimeout) clearTimeout(searchTimeout);
     searchTimeout = window.setTimeout(()=>{
-      searchText.value="";
+      searchString.value="";
     },2500)
 
   }
@@ -48,8 +48,8 @@ import DraftLayout from './DraftLayout.vue';
   <div>
     <!-- <h1>Nothing yet! In construction! 🏗️ </h1>
     <h2>{{ message }}</h2> -->
-    <div v-if="searchText" class="search-overlay">{{ searchText }}</div>
-    <DraftLayout :searchText="searchText"/>
+    <div v-if="searchString" class="search-overlay">{{ searchString.toUpperCase() }}</div>
+    <DraftLayout :searchString="searchString"/>
   </div>
 
   <footer><a target="_blank" href="https://icons8.com/icon/35611/dota-2">Dota 2</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></footer>

@@ -201,7 +201,7 @@ function UpdateHeroRecommendations() {
 
   //V1 of recommendations. Just adds all unique heroes with useful strengths that haven't already been selected. Mostly just for testing DONE
   //V2 should take into account number of times each Weakness appears and reflect that in recommendation list DONE
-  //V3 should also take into account enemy strengths and avoid heroes with weaknesses that would be caught by them
+  //V3 should also take into account enemy strengths and avoid heroes with weaknesses that would be caught by them DONE
   enemyWeaknesses.forEach((enemyTrait) => {
     if (
       !teamStrengths.some(
@@ -266,7 +266,7 @@ function UpdateHeroRecommendations() {
 
   // console.log(recommendations.value.length);
 
-  if (recommendations.value.length > 20) recommendations.value.splice(20); // TODO need to remove any recs with a negative score before splicing down to 20
+  if (recommendations.value.length > 20) recommendations.value.splice(20); 
 }
 
 const RemoveHero = (team: String, hero: Hero) => {
