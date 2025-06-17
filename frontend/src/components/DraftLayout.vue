@@ -1,5 +1,5 @@
 <template>
-  <div id="showTeamError" class="team-error">Pick your team first!</div>
+  <div v-if="showError" id="showTeamError" class="team-error">Pick your team first!</div>
   <div class="container">
     <div class="RADIANT">
       <TeamHeroes
@@ -59,7 +59,7 @@
     </div>
     <div class="INFO" v-if="radiant.length > 0 && dire.length > 0">
       <ul>
-        <li v-for="rec in recommendations">{{ rec.name }} - {{ rec.score }}</li>
+        <li v-for="rec in recommendations" class="hero-tile"><img :src="`/images/heroes/${rec.name}_icon.webp`" :alt="`${rec.name}`"/> - {{ rec.score }}</li>
       </ul>
     </div>
 
@@ -388,6 +388,17 @@ const uniHeroes = computed(() =>
 @keyframes pulse {
   from { transform: translateX(-50%) scale(1); }
   to { transform: translateX(-50%) scale(1.05); }
+}
+
+.hero-tile {
+  border: 1px red solid;
+  width: 60px;
+  text-align: center;
+  cursor: pointer;
+}
+.hero-tile img {
+  border: 1px yellow solid;
+  width: 100%;
 }
 
 ul {
