@@ -1,4 +1,5 @@
 <template>
+  <div id="showTeamError" class="team-error">Pick your team first!</div>
   <div class="container">
     <div class="RADIANT">
       <TeamHeroes
@@ -100,6 +101,8 @@ const radiant = ref<Hero[]>([]);
 const dire = ref<Hero[]>([]);
 
 const selectedTeamName = ref<Team | null>(null);
+
+const showError = ref(false);
 
 var recommendations = ref<
   { name: string; weaknesses: string[]; score: number }[]
@@ -293,6 +296,21 @@ const RemoveHero = (team: String, hero: Hero) => {
 const AddHero = (team: String, hero: Hero) => {
   const chosenTeam = team === "radiant" ? radiant.value : dire.value;
   const otherTeam = team === "radiant" ? dire.value : radiant.value;
+  
+
+
+  //if we haven't selected a team yet, need to give a message to the user!
+  if(!selectedTeamName.value){
+    showError.value = true;
+
+    const audio = new Audio("TODO ADD AUDIO HERE");
+    audio.play();
+
+    setTimeout(() => {
+      showError.value = false;
+    }, 2500);
+    return;
+  }
 
   if (!chosenTeam.includes(hero) && chosenTeam.length < 5) {
     chosenTeam.push(hero);
@@ -351,6 +369,25 @@ const uniHeroes = computed(() =>
     "RADIANT RADIANT RADIANT RADIANT RADIANT SELECT-RADIANT SELECT-RADIANT SELECT-DIRE SELECT-DIRE DIRE DIRE DIRE DIRE DIRE"
     ". STR STR AGI AGI . INFO INFO . INT INT UNI UNI ."
     ". STR STR AGI AGI . INFO INFO . INT INT UNI UNI .";
+}
+
+.team-error {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(200, 0, 0, 0.9);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.5rem;
+  z-index: 1000;
+  animation: pulse 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: translateX(-50%) scale(1); }
+  to { transform: translateX(-50%) scale(1.05); }
 }
 
 ul {
