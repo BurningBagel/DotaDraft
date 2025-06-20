@@ -312,7 +312,7 @@ const AddHero = (team: String, hero: Hero) => {
   if (!selectedTeamName.value) {
     showError.value = true;
 
-    const audio = new Audio("../../public/sounds/meep_merp.mp3");
+    const audio = new Audio("sounds/meep_merp.mp3");
     audio.play();
 
     setTimeout(() => {
