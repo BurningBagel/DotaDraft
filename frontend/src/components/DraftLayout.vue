@@ -69,7 +69,7 @@
           class="hero-tile"
           :src="`/images/heroes/${rec.name}_icon.webp`"
           :alt="`${rec.name}`"
-          onclick="AddHero"
+          style="pointer-events: none;"
         />
         <div class="stars">
           <span v-for="i in rec.score" :key="i">⭐</span>
