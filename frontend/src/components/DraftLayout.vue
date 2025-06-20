@@ -1,5 +1,7 @@
 <template>
-  <div v-if="showError" id="showTeamError" class="team-error">Pick your team first!</div>
+  <div v-if="showError" id="showTeamError" class="team-error">
+    Pick your team first!
+  </div>
   <div class="container">
     <div class="RADIANT">
       <TeamHeroes
@@ -58,9 +60,21 @@
       </ul>
     </div>
     <div class="INFO" v-if="radiant.length > 0 && dire.length > 0">
-      <ul>
-        <li v-for="rec in recommendations" class="hero-tile"><img :src="`/images/heroes/${rec.name}_icon.webp`" :alt="`${rec.name}`"/> - {{ rec.score }}</li>
-      </ul>
+      <div
+        class="recommendation"
+        v-for="rec in recommendations"
+        :key="rec.name"
+      >
+        <img
+          class="hero-tile"
+          :src="`/images/heroes/${rec.name}_icon.webp`"
+          :alt="`${rec.name}`"
+          onclick="AddHero"
+        />
+        <div class="stars">
+          <span v-for="i in rec.score" :key="i">⭐</span>
+        </div>
+      </div>
     </div>
 
     <div class="INT">
@@ -190,7 +204,6 @@ function UpdateHeroRecommendations() {
     selectedTeam = dire.value;
     enemyTeam = radiant.value;
   } else {
-    // TODO send a message to the user to remind them to pick a team and return here
     throw new Error(`Unknown team name: ${selectedTeamName.value}`);
   }
 
@@ -270,9 +283,9 @@ function UpdateHeroRecommendations() {
 
   // console.log(recommendations.value.length);
 
-  if (recommendations.value.length > 20) recommendations.value.splice(20); 
+  if (recommendations.value.length > 15) recommendations.value.splice(15);
 
-  recommendations.value.map((rec) => {rec.name = rec.name.replace('_',' ')}); //replaces all the underscores with spaces.
+  // recommendations.value.map((rec) => {rec.name = rec.name.replace('_',' ')}); //replaces all the underscores with spaces.
 }
 
 const RemoveHero = (team: String, hero: Hero) => {
@@ -296,11 +309,9 @@ const RemoveHero = (team: String, hero: Hero) => {
 const AddHero = (team: String, hero: Hero) => {
   const chosenTeam = team === "radiant" ? radiant.value : dire.value;
   const otherTeam = team === "radiant" ? dire.value : radiant.value;
-  
-
 
   //if we haven't selected a team yet, need to give a message to the user!
-  if(!selectedTeamName.value){
+  if (!selectedTeamName.value) {
     showError.value = true;
 
     const audio = new Audio("TODO ADD AUDIO HERE");
@@ -386,18 +397,29 @@ const uniHeroes = computed(() =>
 }
 
 @keyframes pulse {
-  from { transform: translateX(-50%) scale(1); }
-  to { transform: translateX(-50%) scale(1.05); }
+  from {
+    transform: translateX(-50%) scale(1);
+  }
+  to {
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
+.recommendation {
+  margin-left: 4rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .hero-tile {
-  border: 1px red solid;
   width: 60px;
   text-align: center;
   cursor: pointer;
 }
 .hero-tile img {
-  border: 1px yellow solid;
   width: 100%;
 }
 
@@ -408,6 +430,10 @@ ul {
 .INFO {
   grid-area: INFO;
   text-align: center;
+}
+
+.TEST {
+  border: 1px white solid;
 }
 
 .RESET {

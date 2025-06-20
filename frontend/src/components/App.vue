@@ -60,10 +60,10 @@ import DraftLayout from './DraftLayout.vue';
 
 .search-overlay{
   position: absolute;
-  top: 10px;
+  top: 40%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 2rem;
+  font-size: 10rem;
   color: white;
   text-shadow: 2px 2px 4px black;
   z-index: 1000;
