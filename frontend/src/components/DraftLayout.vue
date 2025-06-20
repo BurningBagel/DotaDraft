@@ -122,7 +122,6 @@ var recommendations = ref<
   { name: string; weaknesses: string[]; score: number }[]
 >([]);
 
-// TODO filter heroes in main screen like in the game
 
 //const heroes = ; //TODO need to bring heroes in from the backend
 
@@ -183,7 +182,6 @@ function countStrengthsWeaknesses(
 }
 
 function UpdateHeroRecommendations() {
-  // var [selectedTeam,enemyTeam] = selectedTeamName.value == Team.Radiant ? [radiant.value,dire.value] : selectedTeamName.value == Team.Dire ? [dire.value,radiant.value]; // TODO defaults to dire,radiant if selectedTeam is null. Need to treat null value
   var selectedTeam: Hero[] = [];
   var enemyTeam: Hero[] = [];
   var teamStrengths: { strength: string; count: number }[] = [];
@@ -314,7 +312,7 @@ const AddHero = (team: String, hero: Hero) => {
   if (!selectedTeamName.value) {
     showError.value = true;
 
-    const audio = new Audio("TODO ADD AUDIO HERE");
+    const audio = new Audio("../../public/sounds/meep_merp.mp3");
     audio.play();
 
     setTimeout(() => {
