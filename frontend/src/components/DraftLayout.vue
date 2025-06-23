@@ -125,7 +125,7 @@ var recommendations = ref<
 >([]);
 
 onMounted(async () =>{
-  const res = await fetch(import.meta.env.VITE_BACKEND_URL+'heroes');
+  const res = await fetch(import.meta.env.VITE_BACKEND_URL+'/heroes');
   heroes.value = await res.json();
 })
 
