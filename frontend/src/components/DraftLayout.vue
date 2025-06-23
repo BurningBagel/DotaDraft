@@ -97,8 +97,8 @@
 </template>
 
 <script setup lang="ts">
-import { testHeroes } from "../data/testHeroes.ts"; // TODO replace with import from backend
-import { computed } from "vue";
+// import { testHeroes } from "../data/testHeroes.ts"; // TODO replace with import from backend
+import { computed, onMounted } from "vue";
 import HeroGroup from "./HeroGroup.vue";
 import { Attribute } from "../shared/enums/attribute.enum";
 import type { Hero } from "../shared/models/hero.model.ts";
@@ -118,9 +118,16 @@ const selectedTeamName = ref<Team | null>(null);
 
 const showError = ref(false);
 
+const heroes = ref<Hero[]>([]);
+
 var recommendations = ref<
   { name: string; weaknesses: string[]; score: number }[]
 >([]);
+
+onMounted(async () =>{
+  const res = await fetch(import.meta.env.VITE_BACKEND_URL+'heroes');
+  heroes.value = await res.json();
+})
 
 
 //const heroes = ; //TODO need to bring heroes in from the backend
@@ -223,7 +230,7 @@ function UpdateHeroRecommendations() {
         (teamTrait) => teamTrait.strength === enemyTrait.weakness
       )
     ) {
-      testHeroes.forEach((hero) => {
+      heroes.value.forEach((hero) => {
         // TODO update with importing from backend
         //For every hero, if it includes the enemy's weakness in it's strengths, AND recommendations does not already include it AND the selected team does not already have them, add that heros name to rec
         if (
@@ -348,19 +355,19 @@ const AddHero = (team: String, hero: Hero) => {
 
 const strHeroes = computed(() =>
   //computed because JSON
-  testHeroes.filter((h) => h.attribute == Attribute.Strength)
+  heroes.value.filter((h) => h.attribute == Attribute.Strength)
 );
 
 const agiHeroes = computed(() =>
-  testHeroes.filter((h) => h.attribute == Attribute.Agility)
+  heroes.value.filter((h) => h.attribute == Attribute.Agility)
 );
 
 const intHeroes = computed(() =>
-  testHeroes.filter((h) => h.attribute == Attribute.Intelligence)
+  heroes.value.filter((h) => h.attribute == Attribute.Intelligence)
 );
 
 const uniHeroes = computed(() =>
-  testHeroes.filter((h) => h.attribute == Attribute.Universal)
+  heroes.value.filter((h) => h.attribute == Attribute.Universal)
 );
 </script>
 
