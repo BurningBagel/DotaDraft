@@ -17,7 +17,6 @@ export class HeroesService {
   }
 
   getHeroes() {
-    console.log("received GET request! returning all heroes!")
     return this.heroes;
   }
 
