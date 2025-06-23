@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { onMounted,onUnmounted,ref } from 'vue';
-import DraftLayout from './DraftLayout.vue';
+  import DraftLayout from './components/DraftLayout.vue';
 
   // const message = ref('Loading...');
   const searchString = ref("");
