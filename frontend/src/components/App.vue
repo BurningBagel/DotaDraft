@@ -28,15 +28,15 @@ import DraftLayout from './DraftLayout.vue';
 
   onMounted(async ()=>{
     window.addEventListener("keydown",handleKeyPress);
-    try{
-      const res = await fetch('http://localhost:3000');//trocar por variável
-      const text = await res.text();
-      message.value = text;
-    }
-    catch(error){
-      message.value = 'Error connecting to the backend';
-      console.error(error)
-    }
+    // try{
+    //   const res = await fetch(import.meta.env.VITE_BACKEND_URL);//trocar por variável
+    //   const text = await res.text();
+    //   message.value = text;
+    // }
+    // catch(error){
+    //   message.value = 'Error connecting to the backend';
+    //   console.error(error)
+    // }
   })
 
   onUnmounted(() =>{
