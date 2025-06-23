@@ -2,7 +2,7 @@
   import { onMounted,onUnmounted,ref } from 'vue';
 import DraftLayout from './DraftLayout.vue';
 
-  const message = ref('Loading...');
+  // const message = ref('Loading...');
   const searchString = ref("");
   let searchTimeout:number|null = null;
 
