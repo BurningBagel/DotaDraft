@@ -4,13 +4,13 @@
     <div class="grid">
       <div
         v-for="hero in heroes"
-        :key="hero.name"
+        :key="hero.names[0]"
         class="hero-tile"
         :class="{ 'dimmed': searchString && !hero.names.some((name) => name.toLowerCase().includes(searchString.toLowerCase())) }"
         @click.left="() => OnSelect('radiant', hero)"
         @click.right.prevent="() => OnSelect('dire', hero)"
       >
-        <img :src="`/images/heroes/${hero.name}_icon.webp`" :alt="`${hero.name}`" />
+        <img :src="`/images/heroes/${hero.names[0]}_icon.webp`" :alt="`${hero.names[0]}`" />
       </div>
     </div>
   </div>
