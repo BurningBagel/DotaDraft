@@ -2,7 +2,10 @@
   <div v-if="showError" id="showTeamError" class="team-error">
     Pick your team first!
   </div>
-  <div class="container">
+  <div v-if="loading">
+    <p class="loading">Now Loading! Please wait...(free hosting has costs :/)</p>
+  </div>
+  <div v-else class="container">
     <div class="RADIANT">
       <TeamHeroes
         :team="radiant"
@@ -121,6 +124,8 @@ defineProps({
   searchString: String,
 });
 
+const loading = ref(true);
+
 const radiant = ref<Hero[]>([]);
 const dire = ref<Hero[]>([]);
 
@@ -139,6 +144,7 @@ var recommendations = ref<
 onMounted(async () =>{
   const res = await fetch(import.meta.env.VITE_BACKEND_URL+'/heroes');
   heroes.value = await res.json();
+  loading.value = false;
 })
 
 
@@ -398,6 +404,12 @@ const uniHeroes = computed(() =>
     "RADIANT RADIANT RADIANT RADIANT RADIANT SELECT-RADIANT SELECT-RADIANT SELECT-DIRE SELECT-DIRE DIRE DIRE DIRE DIRE DIRE"
     ". STR STR AGI AGI . INFO INFO . INT INT UNI UNI ."
     ". STR STR AGI AGI . INFO INFO . INT INT UNI UNI .";
+}
+
+.loading {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 2rem;
 }
 
 .leftover{

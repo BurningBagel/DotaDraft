@@ -6,17 +6,22 @@
         v-for="hero in heroes"
         :key="hero.names[0]"
         class="hero-tile"
-        :class="{ 'dimmed': searchString && !hero.names.some((name) => name.toLowerCase().includes(searchString.toLowerCase())) }"
+        :class="{ 'hidden': !loaded[hero.names[0]], 'dimmed': searchString && !hero.names.some((name) => name.toLowerCase().includes(searchString.toLowerCase())) }"
         @click.left="() => OnSelect('radiant', hero)"
         @click.right.prevent="() => OnSelect('dire', hero)"
+        @load="loaded[hero.names[0]] = true"
       >
-        <img :src="`/images/heroes/${hero.names[0]}_icon.webp`" :alt="`${hero.names[0]}`" />
+        <p v-if="!loaded[hero.names[0]]">🌀</p>
+        <img v-else :src="`/images/heroes/${hero.names[0]}_icon.webp`" :alt="`${hero.names[0]}`" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+
+const loaded = ref({});
+
 defineProps({
   title: String,
   heroes: Array,
@@ -26,6 +31,10 @@ defineProps({
 </script>
 
 <style scoped>
+.hero-tile.hidden{
+  display: none;
+}
+
 .hero-tile.dimmed{
   opacity: 0.3;
   filter: grayscale(1);
