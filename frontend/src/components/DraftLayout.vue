@@ -54,8 +54,7 @@
         <li>Click again on any hero to remove them from that team</li>
         <li>
           Here you'll see recommendations on heroes you might want to pick based
-          on your enemies strengths, as well as items you'll want to consider
-          picking up once the draft's complete!
+          on your enemies strengths! You can also type to search for hero's based on their name
         </li>
       </ul>
     </div>
@@ -252,11 +251,11 @@ function UpdateHeroRecommendations() {
           !selectedTeam.includes(hero)
         ) {
           i = recommendations.value.findIndex(
-            (anchor) => anchor.name === hero.name
+            (anchor) => hero.names.includes(anchor.name)
           );
           if (i == -1) {
             recommendations.value.push({
-              name: hero.name,
+              name: hero.names[0],
               weaknesses: hero.weaknesses,
               score: enemyTrait.count,
             });
@@ -312,7 +311,7 @@ const RemoveHero = (team: String, hero: Hero) => {
 
   chosenTeam.splice(
     chosenTeam.findIndex((item) => {
-      return item.name == hero.name;
+      return item.names[0] == hero.names[0];
     }),
     1
   );
@@ -348,7 +347,7 @@ const AddHero = (team: String, hero: Hero) => {
     //if the hero is already present in the team, remove them
     chosenTeam.splice(
       chosenTeam.findIndex((item) => {
-        return item.name == hero.name;
+        return item.names[0] == hero.names[0];
       }),
       1
     );
@@ -357,7 +356,7 @@ const AddHero = (team: String, hero: Hero) => {
   if (otherTeam.includes(hero)) {
     otherTeam.splice(
       otherTeam.findIndex((item) => {
-        return item.name == hero.name;
+        return item.names[0] == hero.names[0];
       }),
       1
     );

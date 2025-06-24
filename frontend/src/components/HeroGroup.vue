@@ -6,7 +6,7 @@
         v-for="hero in heroes"
         :key="hero.name"
         class="hero-tile"
-        :class="{ 'dimmed': searchString && !hero.name.toLowerCase().includes(searchString.toLowerCase()) }"
+        :class="{ 'dimmed': searchString && !hero.names.some((name) => name.toLowerCase().includes(searchString.toLowerCase())) }"
         @click.left="() => OnSelect('radiant', hero)"
         @click.right.prevent="() => OnSelect('dire', hero)"
       >

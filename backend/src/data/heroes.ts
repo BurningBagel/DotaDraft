@@ -3,757 +3,757 @@ import type { Hero } from "../shared/models/hero.model";
 
 export const heroes : Hero[]=[
     {
-        "name":"Abaddon",
+        "names":["Abaddon"],
         "attribute":Attribute.Universal,
         "strengths":["REGENERATION","SLOW"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Alchemist",
+        "names":["Alchemist"],
         "attribute":Attribute.Strength,
         "strengths":["REGENERATION"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Axe",
+        "names":["Axe","Mogul Khan"],
         "attribute":Attribute.Strength,
         "strengths":["AOE","CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Bristleback",
+        "names":["Bristleback"],
         "attribute":Attribute.Strength,
         "strengths":["AOE","PASSIVE","FAST"],
         "weaknesses":["BREAK","CATCH","SLOW","ROOT"]
     },
     {
-        "name":"Centaur_Warrunner",
+        "names":["Centaur_Warrunner","Bradwarden"],
         "attribute":Attribute.Strength,
         "strengths":["CATCH","FAST"],
         "weaknesses":["SLOW","CATCH","ROOT"]
     },
     {
-        "name":"Chaos_Knight",
+        "names":["Chaos_Knight","CK"],
         "attribute":Attribute.Strength,
         "strengths":["SWARM","CATCH","REGENERATION"],
         "weaknesses":["AOE","ANTI HEAL"]
     },
     {
-        "name":"Clockwerk",
+        "names":["Clockwerk","Rattletrap"],
         "attribute":Attribute.Strength,
         "strengths":["CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Dawnbreaker",
+        "names":["Dawnbreaker","DB"],
         "attribute":Attribute.Strength,
         "strengths":["AOE","CATCH","REGENERATION"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Doom",
+        "names":["Doom"],
         "attribute":Attribute.Strength,
         "strengths":["ANTI HEAL"],
         "weaknesses":[]
     },
     {
-        "name":"Dragon_Knight",
+        "names":["Dragon_Knight","DK","Davion"],
         "attribute":Attribute.Strength,
         "strengths":["PASSIVE"],
         "weaknesses":["BREAK"]
     },
     {
-        "name":"Earth_Spirit",
+        "names":["Earth_Spirit"],
         "attribute":Attribute.Strength,
         "strengths":["CATCH","SLOW"],
         "weaknesses":["CATCH"]
     },
     {
-        "name":"Earthshaker",
+        "names":["Earthshaker","ES"],
         "attribute":Attribute.Strength,
         "strengths":["AOE","CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Elder_Titan",
+        "names":["Elder_Titan","ET"],
         "attribute":Attribute.Strength,
         "strengths":["AOE"],
         "weaknesses":[]
     },
     {
-        "name":"Huskar",
+        "names":["Huskar"],
         "attribute":Attribute.Strength,
         "strengths":["REGENERATION","PASSIVE"],
         "weaknesses":["ANTI HEAL","BREAK"]
     },
     {
-        "name":"Kunkka",
+        "names":["Kunkka"],
         "attribute":Attribute.Strength,
         "strengths":["AOE","CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Legion_Commander",
+        "names":["Legion_Commander","LC"],
         "attribute":Attribute.Strength,
         "strengths":["CATCH"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Lifestealer",
+        "names":["Lifestealer","LS"],
         "attribute":Attribute.Strength,
         "strengths":["REGENERATION"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Lycan",
+        "names":["Lycan"],
         "attribute":Attribute.Strength,
         "strengths":["FAST"],
         "weaknesses":["CATCH","SWARM","ROOT"]
     },
     {
-        "name":"Mars",
+        "names":["Mars"],
         "attribute":Attribute.Strength,
         "strengths":["CATCH","PASSIVE"],
         "weaknesses":["BREAK"]
     },
     {
-        "name":"Night_Stalker",
+        "names":["Night_Stalker","NS"],
         "attribute":Attribute.Strength,
         "strengths":["FAST","SLOW","PASSIVE"],
         "weaknesses":["BREAK","SLOW","ROOT"]
     },
     {
-        "name":"Ogre_Magi",
+        "names":["Ogre_Magi"],
         "attribute":Attribute.Strength,
         "strengths":["CATCH","SLOW"],
         "weaknesses":[]
     },
     {
-        "name":"Omniknight",
+        "names":["Omniknight"],
         "attribute":Attribute.Strength,
         "strengths":["SLOW"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Phoenix",
+        "names":["Phoenix"],
         "attribute":Attribute.Strength,
         "strengths":["REGENERATION","BLINKING"],
         "weaknesses":["ANTI HEAL","ROOT"]
     },
     {
-        "name":"Primal_Beast",
+        "names":["Primal_Beast","PB"],
         "attribute":Attribute.Strength,
         "strengths":["CATCH","FAST","AOE"],
         "weaknesses":["SLOW","ROOT"]
     },
     {
-        "name":"Pudge",
+        "names":["Pudge"],
         "attribute":Attribute.Strength,
         "strengths":["CATCH","AOE"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Slardar",
+        "names":["Slardar"],
         "attribute":Attribute.Strength,
         "strengths":["CATCH","TRUE SIGHT","FAST"],
         "weaknesses":["SLOW","ROOT"]
     },
     {
-        "name":"Spirit_Breaker",
+        "names":["Spirit_Breaker","SB"],
         "attribute":Attribute.Strength,
         "strengths":["CATCH","FAST"],
         "weaknesses":["CATCH","SLOW","ROOT"]
     },
     {
-        "name":"Sven",
+        "names":["Sven"],
         "attribute":Attribute.Strength,
         "strengths":["CATCH","AOE"],
         "weaknesses":[]
     },
     {
-        "name":"Tidehunter",
+        "names":["Tidehunter"],
         "attribute":Attribute.Strength,
         "strengths":["AOE","SLOW","CATCH","ROOT"],
         "weaknesses":[]
     },
     {
-        "name":"Timbersaw",
+        "names":["Timbersaw"],
         "attribute":Attribute.Strength,
         "strengths":["BLINKING","PASSIVE","AOE"],
         "weaknesses":["BREAK","CATCH"]
     },
     {
-        "name":"Tiny",
+        "names":["Tiny"],
         "attribute":Attribute.Strength,
         "strengths":["CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Treant_Protector",
+        "names":["Treant_Protector"],
         "attribute":Attribute.Strength,
         "strengths":["SLOW","ROOT","INVISIBILITY"],
         "weaknesses":["TRUE SIGHT"]
     },
     {
-        "name":"Tusk",
+        "names":["Tusk"],
         "attribute":Attribute.Strength,
         "strengths":["CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Underlord",
+        "names":["Underlord"],
         "attribute":Attribute.Strength,
         "strengths":["ROOT","AOE"],
         "weaknesses":[]
     },
     {
-        "name":"Undying",
+        "names":["Undying"],
         "attribute":Attribute.Strength,
         "strengths":["AOE","SWARM","SLOW"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Wraith_King",
+        "names":["Wraith_King","Skeleton_King","WK"],
         "attribute":Attribute.Strength,
         "strengths":["CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Anti-Mage",
+        "names":["Anti-Mage","AM","Magina"],
         "attribute":Attribute.Agility,
         "strengths":["BLINKING","PASSIVE"],
         "weaknesses":["CATCH","ROOT"]
     },
     {
-        "name":"Bloodseeker",
+        "names":["Bloodseeker","BS"],
         "attribute":Attribute.Agility,
         "strengths":["FAST","REGENERATION","SLOW"],
         "weaknesses":["SLOW","ANTI HEAL","TRUE SIGHT","CATCH","ROOT"]
     },
     {
-        "name":"Bounty_Hunter",
+        "names":["Bounty_Hunter","BH","Gondar"],
         "attribute":Attribute.Agility,
         "strengths":["INVISIBILITY","TRUE SIGHT","FAST"],
         "weaknesses":["TRUE SIGHT","SLOW","CATCH","ROOT"]
     },
     {
-        "name":"Broodmother",
+        "names":["Broodmother"],
         "attribute":Attribute.Agility,
         "strengths":["SLOW","SWARM","FAST"],
         "weaknesses":["AOE","SLOW","CATCH","ROOT"]
     },
     {
-        "name":"Clinkz",
+        "names":["Clinkz"],
         "attribute":Attribute.Agility,
         "strengths":["INVISIBILITY","FAST"],
         "weaknesses":["TRUE SIGHT","SLOW","CATCH","ROOT"]
     },
     {
-        "name":"Drow_Ranger",
+        "names":["Drow_Ranger"],
         "attribute":Attribute.Agility,
         "strengths":["PASSIVE","SLOW","ANTI HEAL"],
         "weaknesses":["BREAK","BLINKING"]
     },
     {
-        "name":"Ember_Spirit",
+        "names":["Ember_Spirit"],
         "attribute":Attribute.Agility,
         "strengths":["BLINKING"],
         "weaknesses":["ROOT","CATCH"]
     },
     {
-        "name":"Faceless_Void",
+        "names":["Faceless_Void"],
         "attribute":Attribute.Agility,
         "strengths":["CATCH","BLINKING"],
         "weaknesses":["ROOT","CATCH"]
     },
     {
-        "name":"Gyrocopter",
+        "names":["Gyrocopter"],
         "attribute":Attribute.Agility,
         "strengths":["AOE","FAST"],
         "weaknesses":["SLOW","CATCH","ROOT"]
     },
     {
-        "name":"Hoodwink",
+        "names":["Hoodwink"],
         "attribute":Attribute.Agility,
         "strengths":["FAST","BREAK"],
         "weaknesses":["CATCH","SLOW","ROOT"]
     },
     {
-        "name":"Juggernaut",
+        "names":["Juggernaut"],
         "attribute":Attribute.Agility,
         "strengths":["REGENERATION"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Kez",
+        "names":["Kez"],
         "attribute":Attribute.Agility,
         "strengths":["INVISIBILITY","BLINKING"],
         "weaknesses":["TRUE SIGHT","ROOT","CATCH"]
     },
     {
-        "name":"Lone_Druid",
+        "names":["Lone_Druid"],
         "attribute":Attribute.Agility,
         "strengths":["ROOT"],
         "weaknesses":[]
     },
     {
-        "name":"Luna",
+        "names":["Luna"],
         "attribute":Attribute.Agility,
         "strengths":["AOE"],
         "weaknesses":[]
     },
     {
-        "name":"Medusa",
+        "names":["Medusa"],
         "attribute":Attribute.Agility,
         "strengths":["AOE","ROOT"],
         "weaknesses":[]
     },
     {
-        "name":"Meepo",
+        "names":["Meepo"],
         "attribute":Attribute.Agility,
         "strengths":["SWARM","ROOT","REGENERATION"],
         "weaknesses":["AOE","ANTI HEAL"]
     },
     {
-        "name":"Mirana",
+        "names":["Mirana"],
         "attribute":Attribute.Agility,
         "strengths":["BLINKING","CATCH"],
         "weaknesses":["ROOT","CATCH"]
     },
     {
-        "name":"Monkey_King",
+        "names":["Monkey_King","MK"],
         "attribute":Attribute.Agility,
         "strengths":["BLINKING","REGENERATION","CATCH"],
         "weaknesses":["ANTI HEAL","ROOT","CATCH"]
     },
     {
-        "name":"Morphling",
+        "names":["Morphling"],
         "attribute":Attribute.Agility,
         "strengths":["BLINKING","REGENERATION","CATCH"],
         "weaknesses":["ROOT","CATCH","ANTI HEAL"]
     },
     {
-        "name":"Naga_Siren",
+        "names":["Naga_Siren"],
         "attribute":Attribute.Agility,
         "strengths":["ROOT","SWARM"],
         "weaknesses":["AOE"]
     },
     {
-        "name":"Nyx_Assassin",
+        "names":["Nyx_Assassin"],
         "attribute":Attribute.Universal,
         "strengths":["INVISIBILITY","CATCH"],
         "weaknesses":["TRUE SIGHT"]
     },
     {
-        "name":"Phantom_Assassin",
+        "names":["Phantom_Assassin"],
         "attribute":Attribute.Agility,
         "strengths":["BLINKING","PASSIVE"],
         "weaknesses":["ROOT","CATCH","BREAK"]
     },
     {
-        "name":"Phantom_Lancer",
+        "names":["Phantom_Lancer","PL"],
         "attribute":Attribute.Agility,
         "strengths":["SWARM","FAST","BLINKING"],
         "weaknesses":["AOE","CATCH","ROOT"]
     },
     {
-        "name":"Razor",
+        "names":["Razor"],
         "attribute":Attribute.Agility,
         "strengths":["SLOW"],
         "weaknesses":[]
     },
     {
-        "name":"Riki",
+        "names":["Riki"],
         "attribute":Attribute.Agility,
         "strengths":["INVISIBILITY","BLINKING"],
         "weaknesses":["ROOT","CATCH","TRUE SIGHT"]
     },
     {
-        "name":"Shadow_Fiend",
+        "names":["Shadow_Fiend","SF","Nevermore"],
         "attribute":Attribute.Agility,
         "strengths":[],
         "weaknesses":[]
     },
     {
-        "name":"Slark",
+        "names":["Slark"],
         "attribute":Attribute.Agility,
         "strengths":["BLINKING","REGENERATION","ROOT"],
         "weaknesses":["ROOT","ANTI HEAL","CATCH"]
     },
     {
-        "name":"Sniper",
+        "names":["Sniper","Kardel"],
         "attribute":Attribute.Agility,
         "strengths":["SLOW"],
         "weaknesses":[]
     },
     {
-        "name":"Spectre",
+        "names":["Spectre"],
         "attribute":Attribute.Universal,
         "strengths":["SLOW","PASSIVE"],
         "weaknesses":["BREAK"]
     },
     {
-        "name":"Templar_Assassin",
+        "names":["Templar_Assassin","TA"],
         "attribute":Attribute.Agility,
         "strengths":["INVISIBILITY","SLOW"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Terrorblade",
+        "names":["Terrorblade","TB"],
         "attribute":Attribute.Agility,
         "strengths":["SWARM"],
         "weaknesses":["AOE","ANTI HEAL"]
     },
     {
-        "name":"Troll_Warlord",
+        "names":["Troll_Warlord"],
         "attribute":Attribute.Agility,
         "strengths":["SLOW","REGENERATION","FAST"],
         "weaknesses":["ANTI HEAL","SLOW","ROOT","CATCH"]
     },
     {
-        "name":"Ursa",
+        "names":["Ursa"],
         "attribute":Attribute.Agility,
         "strengths":["SLOW","FAST"],
         "weaknesses":["ROOT","SLOW","CATCH"]
     },
     {
-        "name":"Vengeful_Spirit",
+        "names":["Vengeful_Spirit","VS"],
         "attribute":Attribute.Agility,
         "strengths":["CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Viper",
+        "names":["Viper"],
         "attribute":Attribute.Agility,
         "strengths":["BREAK","SLOW"],
         "weaknesses":[]
     },
     {
-        "name":"Weaver",
+        "names":["Weaver"],
         "attribute":Attribute.Agility,
         "strengths":["INVISIBILITY","FAST"],
         "weaknesses":["ROOT","CATCH"]
     },
     {
-        "name":"Ancient_Apparition",
+        "names":["Ancient_Apparition","AA"],
         "attribute":Attribute.Intelligence,
         "strengths":["SLOW","ANTI HEAL"],
         "weaknesses":[]
     },
     {
-        "name":"Chen",
+        "names":["Chen"],
         "attribute":Attribute.Intelligence,
         "strengths":["REGENERATION"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Crystal_Maiden",
+        "names":["Crystal_Maiden","CM"],
         "attribute":Attribute.Intelligence,
         "strengths":["ROOT"],
         "weaknesses":[]
     },
     {
-        "name":"Dark_Seer",
+        "names":["Dark_Seer","DS"],
         "attribute":Attribute.Intelligence,
         "strengths":["FAST"],
         "weaknesses":["ROOT","CATCH"]
     },
     {
-        "name":"Dark_Willow",
+        "names":["Dark_Willow"],
         "attribute":Attribute.Intelligence,
         "strengths":["CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Disruptor",
+        "names":["Disruptor"],
         "attribute":Attribute.Intelligence,
         "strengths":["CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Enchantress",
+        "names":["Enchantress"],
         "attribute":Attribute.Intelligence,
         "strengths":["SLOW","REGENERATION","PASSIVE"],
         "weaknesses":["ANTI HEAL","BREAK"]
     },
     {
-        "name":"Grimstroke",
+        "names":["Grimstroke"],
         "attribute":Attribute.Intelligence,
         "strengths":["ROOT"],
         "weaknesses":[]
     },
     {
-        "name":"Invoker",
+        "names":["Invoker","Carl"],
         "attribute":Attribute.Intelligence,
         "strengths":["CATCH","INVISIBILITY","FAST","AOE"],
         "weaknesses":["TRUE SIGHT","SLOW","CATCH"]
     },
     {
-        "name":"Jakiro",
+        "names":["Jakiro"],
         "attribute":Attribute.Intelligence,
         "strengths":["CATCH","AOE"],
         "weaknesses":[]
     },
     {
-        "name":"Keeper_of_the_Light",
+        "names":["Keeper_of_the_Light","KOTL"],
         "attribute":Attribute.Intelligence,
         "strengths":["SLOW"],
         "weaknesses":[]
     },
     {
-        "name":"Leshrac",
+        "names":["Leshrac"],
         "attribute":Attribute.Intelligence,
         "strengths":["CATCH","SLOW","AOE"],
         "weaknesses":[]
     },
     {
-        "name":"Lich",
+        "names":["Lich"],
         "attribute":Attribute.Intelligence,
         "strengths":["CATCH","SLOW"],
         "weaknesses":[]
     },
     {
-        "name":"Lina",
+        "names":["Lina"],
         "attribute":Attribute.Intelligence,
         "strengths":["CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Lion",
+        "names":["Lion"],
         "attribute":Attribute.Intelligence,
         "strengths":["CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Muerta",
+        "names":["Muerta"],
         "attribute":Attribute.Intelligence,
         "strengths":["SLOW"],
         "weaknesses":[]
     },
     {
-        "name":"Necrophos",
+        "names":["Necrophos"],
         "attribute":Attribute.Intelligence,
         "strengths":["REGENERATION"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Oracle",
+        "names":["Oracle"],
         "attribute":Attribute.Intelligence,
         "strengths":["REGENERATION","ROOT"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Outworld_Destroyer",
+        "names":["Outworld_Destroyer","OD"],
         "attribute":Attribute.Intelligence,
         "strengths":["CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Puck",
+        "names":["Puck"],
         "attribute":Attribute.Intelligence,
         "strengths":["ROOT","BLINKING"],
         "weaknesses":["ROOT","CATCH"]
     },
     {
-        "name":"Pugna",
+        "names":["Pugna"],
         "attribute":Attribute.Intelligence,
         "strengths":["SLOW","REGENERATION"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Queen_of_Pain",
+        "names":["Queen_of_Pain","QOP"],
         "attribute":Attribute.Intelligence,
         "strengths":["BLINKING"],
         "weaknesses":["ROOT","CATCH"]
     },
     {
-        "name":"Ringmaster",
+        "names":["Ringmaster"],
         "attribute":Attribute.Intelligence,
         "strengths":[],
         "weaknesses":[]
     },
     {
-        "name":"Rubick",
+        "names":["Rubick"],
         "attribute":Attribute.Intelligence,
         "strengths":["CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Shadow_Demon",
+        "names":["Shadow_Demon","SD"],
         "attribute":Attribute.Intelligence,
         "strengths":["SLOW","ROOT"],
         "weaknesses":[]
     },
     {
-        "name":"Shadow_Shaman",
+        "names":["Shadow_Shaman","SS"],
         "attribute":Attribute.Intelligence,
         "strengths":["CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Silencer",
+        "names":["Silencer"],
         "attribute":Attribute.Intelligence,
         "strengths":["SLOW"],
         "weaknesses":[]
     },
     {
-        "name":"Skywrath_Mage",
+        "names":["Skywrath_Mage"],
         "attribute":Attribute.Intelligence,
         "strengths":["SLOW"],
         "weaknesses":[]
     },
     {
-        "name":"Storm_Spirit",
+        "names":["Storm_Spirit"],
         "attribute":Attribute.Intelligence,
         "strengths":["BLINKING"],
         "weaknesses":["ROOT","CATCH"]
     },
     {
-        "name":"Tinker",
+        "names":["Tinker"],
         "attribute":Attribute.Intelligence,
         "strengths":["ROOT"],
         "weaknesses":[]
     },
     {
-        "name":"Warlock",
+        "names":["Warlock"],
         "attribute":Attribute.Intelligence,
         "strengths":["SLOW"],
         "weaknesses":[]
     },
     {
-        "name":"Winter_Wyvern",
+        "names":["Winter_Wyvern","WW"],
         "attribute":Attribute.Intelligence,
         "strengths":["REGENERATION","SLOW"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Witch_Doctor",
+        "names":["Witch_Doctor","WD"],
         "attribute":Attribute.Intelligence,
         "strengths":["CATCH","REGENERATION"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Zeus",
+        "names":["Zeus"],
         "attribute":Attribute.Intelligence,
         "strengths":["BLINKING"],
         "weaknesses":["ROOT"]
     },
     {
-        "name":"Arc_Warden",
+        "names":["Arc_Warden"],
         "attribute":Attribute.Universal,
         "strengths":["SLOW"],
         "weaknesses":[]
     },
     {
-        "name":"Bane",
+        "names":["Bane"],
         "attribute":Attribute.Universal,
         "strengths":["CATCH","REGENERATION"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Batrider",
+        "names":["Batrider"],
         "attribute":Attribute.Universal,
         "strengths":["SLOW","CATCH","BLINKING"],
         "weaknesses":["ROOT","CATCH"]
     },
     {
-        "name":"Beastmaster",
+        "names":["Beastmaster"],
         "attribute":Attribute.Universal,
         "strengths":[],
         "weaknesses":[]
     },
     {
-        "name":"Brewmaster",
+        "names":["Brewmaster"],
         "attribute":Attribute.Universal,
         "strengths":[],
         "weaknesses":[]
     },
     {
-        "name":"Dazzle",
+        "names":["Dazzle"],
         "attribute":Attribute.Universal,
         "strengths":["REGENERATION","SLOW"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Death_Prophet",
+        "names":["Death_Prophet","DP"],
         "attribute":Attribute.Universal,
         "strengths":["REGENERATION","SLOW","AOE"],
         "weaknesses":["ANTI HEAL"]
     },
     {
-        "name":"Enigma",
+        "names":["Enigma"],
         "attribute":Attribute.Universal,
         "strengths":["CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Io",
+        "names":["Io"],
         "attribute":Attribute.Universal,
         "strengths":["REGENERATION","BLINKING"],
         "weaknesses":["ANTI HEAL","ROOT"]
     },
     {
-        "name":"Magnus",
+        "names":["Magnus"],
         "attribute":Attribute.Universal,
         "strengths":["BLINKING"],
         "weaknesses":["ROOT"]
     },
     {
-        "name":"Marci",
+        "names":["Marci"],
         "attribute":Attribute.Universal,
         "strengths":["BLINKING"],
         "weaknesses":["ROOT"]
     },
     {
-        "name":"Nature's_Prophet",
+        "names":["Nature's_Prophet","NP"],
         "attribute":Attribute.Universal,
         "strengths":[],
         "weaknesses":[]
     },
     {
-        "name":"Pangolier",
+        "names":["Pangolier"],
         "attribute":Attribute.Universal,
         "strengths":[],
         "weaknesses":[]
     },
     {
-        "name":"Sand_King",
+        "names":["Sand_King","SK"],
         "attribute":Attribute.Universal,
         "strengths":["CATCH"],
         "weaknesses":[]
     },
     {
-        "name":"Snapfire",
+        "names":["Snapfire"],
         "attribute":Attribute.Universal,
         "strengths":[],
         "weaknesses":[]
     },
     {
-        "name":"Techies",
+        "names":["Techies"],
         "attribute":Attribute.Universal,
         "strengths":[],
         "weaknesses":[]
     },
     {
-        "name":"Venomancer",
+        "names":["Venomancer"],
         "attribute":Attribute.Universal,
         "strengths":["SLOW"],
         "weaknesses":[]
     },
     {
-        "name":"Visage",
+        "names":["Visage"],
         "attribute":Attribute.Universal,
         "strengths":[],
         "weaknesses":[]
     },
     {
-        "name":"Void_Spirit",
+        "names":["Void_Spirit"],
         "attribute":Attribute.Universal,
         "strengths":["BLINKING"],
         "weaknesses":["ROOT","CATCH"]
     },
     {
-        "name":"Windranger",
+        "names":["Windranger","WR"],
         "attribute":Attribute.Universal,
         "strengths":["CATCH","FAST"],
         "weaknesses":["ROOT","CATCH"]

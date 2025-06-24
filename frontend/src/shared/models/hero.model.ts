@@ -1,7 +1,7 @@
 import { Attribute } from '../enums/attribute.enum';
 
 export interface Hero {
-  name: string;
+  names: string[];
   attribute: Attribute;
   strengths: string[];
   weaknesses: string[];
