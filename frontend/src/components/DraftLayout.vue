@@ -59,7 +59,7 @@
         </li>
       </ul>
     </div>
-    <div class="INFO" v-if="radiant.length > 0 && dire.length > 0">
+    <div class="INFO" v-if="radiant.length > 0 && dire.length > 0 && radiant.length + dire.length < 10">
       <div
         class="recommendation"
         v-for="rec in recommendations"
@@ -76,7 +76,7 @@
         </div>
       </div>
     </div>
-    <div class="INFO" v-if="radiant.length + dire.length == 10">
+    <div class="INFO" v-if="radiant.length + dire.length == 10 && leftoverWeaknesses?.size > 0">
       <h3>Here are the enemy strengths you haven't addressed in your draft. Try to build items to cover for these!</h3>
       <div class="leftover"
       v-for="leftover in leftoverWeaknesses">
@@ -127,7 +127,7 @@ const showError = ref(false);
 
 const heroes = ref<Hero[]>([]);
 
-const leftoverWeaknesses = ref<Set<String>>();
+const leftoverWeaknesses = ref<Set<String>>(new Set());
 
 var recommendations = ref<
   { name: string; weaknesses: string[]; score: number }[]
