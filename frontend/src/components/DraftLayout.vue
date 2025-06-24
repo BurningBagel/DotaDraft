@@ -76,6 +76,13 @@
         </div>
       </div>
     </div>
+    <div class="INFO" v-if="radiant.length + dire.length == 10">
+      <h3>Here are the enemy strengths you haven't addressed in your draft. Try to build items to cover for these!</h3>
+      <div class="leftover"
+      v-for="leftover in leftoverWeaknesses">
+        {{ leftover.toLowerCase().replace("_"," ") }}
+      </div>
+    </div>
 
     <div class="INT">
       <HeroGroup
@@ -119,6 +126,8 @@ const selectedTeamName = ref<Team | null>(null);
 const showError = ref(false);
 
 const heroes = ref<Hero[]>([]);
+
+const leftoverWeaknesses = ref<Set<String>>();
 
 var recommendations = ref<
   { name: string; weaknesses: string[]; score: number }[]
@@ -197,7 +206,8 @@ function UpdateHeroRecommendations() {
   var enemyWeaknesses: { weakness: string; count: number }[] = [];
   var i: number;
 
-  recommendations.value.splice(0); //clear current recs
+  recommendations.value.splice(0); //clear current recs and leftovers
+  leftoverWeaknesses.value?.clear();
 
   // console.log("CLEARING RECOMMENDATIONS");
   // console.log([...recommendations.value]);
@@ -225,13 +235,13 @@ function UpdateHeroRecommendations() {
   //V2 should take into account number of times each Weakness appears and reflect that in recommendation list DONE
   //V3 should also take into account enemy strengths and avoid heroes with weaknesses that would be caught by them DONE
   enemyWeaknesses.forEach((enemyTrait) => {
-    if (
+    if (//for each enemy weakness, if there are no team strengths that address it...
       !teamStrengths.some(
         (teamTrait) => teamTrait.strength === enemyTrait.weakness
       )
     ) {
+      leftoverWeaknesses.value?.add(enemyTrait.weakness);
       heroes.value.forEach((hero) => {
-        // TODO update with importing from backend
         //For every hero, if it includes the enemy's weakness in it's strengths, AND recommendations does not already include it AND the selected team does not already have them, add that heros name to rec
         if (
           hero.strengths.includes(enemyTrait.weakness) &&
@@ -385,6 +395,10 @@ const uniHeroes = computed(() =>
     "RADIANT RADIANT RADIANT RADIANT RADIANT SELECT-RADIANT SELECT-RADIANT SELECT-DIRE SELECT-DIRE DIRE DIRE DIRE DIRE DIRE"
     ". STR STR AGI AGI . INFO INFO . INT INT UNI UNI ."
     ". STR STR AGI AGI . INFO INFO . INT INT UNI UNI .";
+}
+
+.leftover{
+  text-transform: capitalize;
 }
 
 .team-error {
