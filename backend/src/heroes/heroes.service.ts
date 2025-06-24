@@ -23,7 +23,7 @@ export class HeroesService {
   //searches through the list of heroes by name and returns the details of that hero, if it exists
   getSpecificHero(name: string): Hero {
      let i = this.heroes.findIndex(
-      (item) => String(item.name).toUpperCase() == name.toUpperCase(),
+      (item) => String(item.names[0]).toUpperCase() == name.toUpperCase(),
     );
     if(i == -1){
       throw new Error(`SPECIFIC HERO NOT FOUND ${name}`);
