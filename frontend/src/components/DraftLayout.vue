@@ -77,11 +77,15 @@
       </div>
     </div>
     <div class="INFO" v-if="radiant.length + dire.length == 10 && leftoverWeaknesses?.size > 0">
-      <h3>Here are the enemy strengths you haven't addressed in your draft. Try to build items to cover for these!</h3>
+      <h3>Here are the enemy weaknesses you haven't addressed in your draft. Try to build items to cover for these!</h3>
       <div class="leftover"
       v-for="leftover in leftoverWeaknesses">
         {{ leftover.toLowerCase().replace("_"," ") }}
       </div>
+    </div>
+
+    <div class="INFO" v-if="radiant.length + dire.length == 10 && leftoverWeaknesses.size == 0">
+      <h3>Great draft! GLHF!</h3>
     </div>
 
     <div class="INT">
