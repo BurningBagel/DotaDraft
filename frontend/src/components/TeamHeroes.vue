@@ -2,11 +2,11 @@
     <div :class="chosenTeam">
         <div
             v-for="hero in team"
-            :key="hero.name"
+            :key="hero.names[0]"
             class="hero-tile"
             @click.left="()=>OnSelect(chosenTeam,hero)"
         >
-            <img :src="`/images/heroes/${hero.name}_icon.webp`" :alt="`${hero.name}`"/>
+            <img :src="`/images/heroes/${hero.names[0]}_icon.webp`" :alt="`${hero.names[0]}`"/>
 
         </div>
     </div>
