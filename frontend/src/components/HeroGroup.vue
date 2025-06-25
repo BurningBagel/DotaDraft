@@ -12,7 +12,7 @@
         @load="loaded[hero.names[0]] = true"
       >
         <p v-if="!loaded[hero.names[0]]">🌀</p>
-        <img v-else :src="`/images/heroes/${hero.names[0]}_icon.webp`" :alt="`${hero.names[0]}`" />
+        <img v-else :src="`/images/heroes/${hero.names[0]}_icon.webp`" :alt="`${hero.names[0]}`" @load="loaded[hero.names[0]] = true"/>
       </div>
     </div>
   </div>
