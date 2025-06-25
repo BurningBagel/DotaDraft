@@ -9,7 +9,6 @@
         :class="{ 'hidden': !loaded[hero.names[0]], 'dimmed': searchString && !hero.names.some((name) => name.toLowerCase().includes(searchString.toLowerCase())) }"
         @click.left="() => OnSelect('radiant', hero)"
         @click.right.prevent="() => OnSelect('dire', hero)"
-        @load="loaded[hero.names[0]] = true"
       >
         <p v-if="!loaded[hero.names[0]]">🌀</p>
         <img v-else :src="`/images/heroes/${hero.names[0]}_icon.webp`" :alt="`${hero.names[0]}`" @load="loaded[hero.names[0]] = true"/>
@@ -19,8 +18,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-const loaded = ref({});
+import { reactive } from 'vue';
+const loaded = reactive({});
 
 defineProps({
   title: String,
