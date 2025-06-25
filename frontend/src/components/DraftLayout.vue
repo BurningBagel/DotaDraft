@@ -409,7 +409,8 @@ const uniHeroes = computed(() =>
 .loading {
   font-size: 1.5rem;
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 50%;
+  margin-left: 50%;
 }
 
 .leftover{
