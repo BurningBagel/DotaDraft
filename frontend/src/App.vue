@@ -2,7 +2,6 @@
   import { onMounted,onUnmounted,ref } from 'vue';
   import DraftLayout from './components/DraftLayout.vue';
 
-  // const message = ref('Loading...');
   const searchString = ref("");
   let searchTimeout:number|null = null;
 
@@ -28,15 +27,6 @@
 
   onMounted(async ()=>{
     window.addEventListener("keydown",handleKeyPress);
-    // try{
-    //   const res = await fetch(import.meta.env.VITE_BACKEND_URL);//trocar por variável
-    //   const text = await res.text();
-    //   message.value = text;
-    // }
-    // catch(error){
-    //   message.value = 'Error connecting to the backend';
-    //   console.error(error)
-    // }
   })
 
   onUnmounted(() =>{
@@ -46,8 +36,6 @@
 
 <template>
   <div>
-    <!-- <h1>Nothing yet! In construction! 🏗️ </h1>
-    <h2>{{ message }}</h2> -->
     <div v-if="searchString" class="search-overlay">{{ searchString.toUpperCase() }}</div>
     <DraftLayout :searchString="searchString"/>
   </div>

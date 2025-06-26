@@ -407,10 +407,12 @@ const uniHeroes = computed(() =>
 }
 
 .loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   font-size: 1.5rem;
   text-align: center;
-  margin-top: 50%;
-  margin-left: 50%;
 }
 
 .leftover{
