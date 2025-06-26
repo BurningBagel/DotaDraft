@@ -2,8 +2,8 @@
   <div v-if="showError" id="showTeamError" class="team-error">
     Pick your team first!
   </div>
-  <div v-if="loading" class="loading">
-    <p>Now Loading! Please wait...(free hosting has costs :/)</p>
+  <div v-if="loading">
+    <p class="loading">Now Loading! Please wait...(free hosting has costs :/)</p>
   </div>
   <div v-else class="container">
     <div class="RADIANT">
@@ -409,6 +409,7 @@ const uniHeroes = computed(() =>
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   min-height: 100vh;
   font-size: 1.5rem;
   text-align: center;
