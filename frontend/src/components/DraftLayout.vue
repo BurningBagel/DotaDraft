@@ -2,8 +2,8 @@
   <div v-if="showError" id="showTeamError" class="team-error">
     Pick your team first!
   </div>
-  <div v-if="loading">
-    <p class="loading">Now Loading! Please wait...(free hosting has costs :/)</p>
+  <div v-if="loading" class="loading">
+    <p>Now Loading! Please wait...(free hosting has costs :/)</p>
   </div>
   <div v-else class="container">
     <div class="RADIANT">
@@ -110,7 +110,6 @@
 </template>
 
 <script setup lang="ts">
-// import { testHeroes } from "../data/testHeroes.ts"; // TODO replace with import from backend
 import { computed, onMounted } from "vue";
 import HeroGroup from "./HeroGroup.vue";
 import { Attribute } from "../shared/enums/attribute.enum";
