@@ -10,8 +10,8 @@
         @click.left="() => OnSelect('radiant', hero)"
         @click.right.prevent="() => OnSelect('dire', hero)"
       >
-        <p v-if="!loaded[hero.names[0]]">🌀</p>
-        <img v-else :src="`/images/heroes/${hero.names[0]}_icon.webp`" :alt="`${hero.names[0]}`" @load="loaded[hero.names[0]] = true"/>
+        <p v-if="!loaded[hero.names[0]]" class="placeholder"></p>
+        <img :src="`/images/heroes/${hero.names[0]}_icon.webp`" :alt="`${hero.names[0]}`" @load="loaded[hero.names[0]] = true"/>
       </div>
     </div>
   </div>
@@ -20,10 +20,6 @@
 <script setup>
 import { onMounted, reactive } from 'vue';
 const loaded = reactive({});
-
-onMounted(async ()=>{
-  console.log(loaded);
-})
 
 defineProps({
   title: String,
@@ -34,7 +30,32 @@ defineProps({
 </script>
 
 <style scoped>
-.hero-tile.hidden{
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #eeeeee8f 25%,
+    #dddddd7f 50%,
+    #eeeeee76 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+
+.hero-tile.hidden img{
   display: none;
 }
 
@@ -55,8 +76,10 @@ defineProps({
   width: 60px;
   text-align: center;
   cursor: pointer;
+  position: relative;
 }
 .hero-tile img {
   width: 100%;
+  display:block;
 }
 </style>
