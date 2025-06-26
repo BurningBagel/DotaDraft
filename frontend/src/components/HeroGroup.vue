@@ -18,8 +18,12 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { onMounted, reactive } from 'vue';
 const loaded = reactive({});
+
+onMounted(async ()=>{
+  console.log(loaded);
+})
 
 defineProps({
   title: String,
